@@ -11,18 +11,19 @@
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/SourceFit/settings.py">
-          <provider selected="true" editor-type-id="text-editor" />
+        <entry file="file://$PROJECT_DIR$/Core/Templates/Core/base.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="255">
+              <caret line="15" selection-start-line="15" selection-end-line="16" />
+            </state>
+          </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/SourceFit/urls.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="104">
-              <caret line="17" selection-start-line="17" selection-end-line="17" />
-              <folding>
-                <element signature="e#633#665#0" expanded="true" />
-              </folding>
+            <state relative-caret-position="398">
+              <caret line="25" column="40" lean-forward="true" selection-start-line="25" selection-start-column="40" selection-end-line="25" selection-end-column="40" />
             </state>
           </provider>
         </entry>
@@ -30,23 +31,22 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Authentication/views.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="102">
-              <caret line="7" column="44" selection-start-line="7" selection-start-column="44" selection-end-line="7" selection-end-column="44" />
-              <folding>
-                <element signature="e#0#35#0" expanded="true" />
-              </folding>
+            <state>
+              <caret selection-end-line="25" selection-end-column="78" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Core/Templates/Core/dashboard.html">
+          <provider selected="true" editor-type-id="text-editor" />
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/Core/views.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="51">
-              <caret line="4" column="33" selection-start-line="4" selection-start-column="33" selection-end-line="4" selection-end-column="33" />
-              <folding>
-                <element signature="e#0#35#0" expanded="true" />
-              </folding>
+            <state relative-caret-position="457">
+              <caret line="52" column="4" selection-start-line="52" selection-start-column="4" selection-end-line="52" selection-end-column="4" />
             </state>
           </provider>
         </entry>
@@ -55,7 +55,7 @@
         <entry file="file://$PROJECT_DIR$/Authentication/urls.py">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="68">
-              <caret line="5" column="36" selection-start-line="5" selection-start-column="36" selection-end-line="5" selection-end-column="36" />
+              <caret line="4" selection-start-line="4" selection-end-line="5" selection-end-column="70" />
               <folding>
                 <element signature="e#0#28#0" expanded="true" />
               </folding>
@@ -64,15 +64,10 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Core/tests.py">
-          <provider selected="true" editor-type-id="text-editor" />
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Core/urls.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="51">
-              <caret line="4" column="40" selection-start-line="4" selection-start-column="40" selection-end-line="4" selection-end-column="40" />
+            <state relative-caret-position="153">
+              <caret line="9" column="51" lean-forward="true" selection-start-line="9" selection-start-column="51" selection-end-line="9" selection-end-column="51" />
               <folding>
                 <element signature="e#0#37#0" expanded="true" />
               </folding>
@@ -80,11 +75,21 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/manage.py">
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Core/Templates/Core/exercise.html">
+          <provider selected="true" editor-type-id="text-editor" />
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Core/Templates/Core/goals.html">
+          <provider selected="true" editor-type-id="text-editor" />
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Authentication/Templates/Authentication/base.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="17">
-              <caret line="1" column="58" selection-start-line="1" selection-start-column="58" selection-end-line="1" selection-end-column="58" />
+            <state relative-caret-position="459">
+              <caret line="27" column="7" lean-forward="true" selection-end-line="27" selection-end-column="7" />
             </state>
           </provider>
         </entry>
@@ -104,20 +109,26 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/Core/views.py" />
-        <option value="$PROJECT_DIR$/Core/urls.py" />
-        <option value="$PROJECT_DIR$/Authentication/urls.py" />
-        <option value="$PROJECT_DIR$/Authentication/views.py" />
-        <option value="$PROJECT_DIR$/SourceFit/urls.py" />
         <option value="$PROJECT_DIR$/manage.py" />
+        <option value="$PROJECT_DIR$/Authentication/urls.py" />
+        <option value="$PROJECT_DIR$/Authentication/Templates/Authentication/home.html" />
+        <option value="$PROJECT_DIR$/SourceFit/settings.py" />
+        <option value="$PROJECT_DIR$/Authentication/views.py" />
+        <option value="$PROJECT_DIR$/Authentication/Templates/Authentication/base.html" />
+        <option value="$PROJECT_DIR$/Authentication/Templates/Authentication/login.html" />
+        <option value="$PROJECT_DIR$/Authentication/Templates/Authentication/register.html" />
+        <option value="$PROJECT_DIR$/Core/Templates/Core/base.html" />
+        <option value="$PROJECT_DIR$/Core/urls.py" />
+        <option value="$PROJECT_DIR$/SourceFit/urls.py" />
+        <option value="$PROJECT_DIR$/Core/views.py" />
       </list>
     </option>
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="477" />
-    <option name="y" value="57" />
-    <option name="width" value="2100" />
-    <option name="height" value="1500" />
+    <option name="x" value="318" />
+    <option name="y" value="38" />
+    <option name="width" value="1400" />
+    <option name="height" value="1000" />
   </component>
   <component name="ProjectView">
     <navigator proportions="" version="1">
@@ -135,7 +146,49 @@
             <path>
               <item name="sourcefit" type="b2602c69:ProjectViewProjectNode" />
               <item name="sourcefit" type="462c0819:PsiDirectoryNode" />
+              <item name="Authentication" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="sourcefit" type="b2602c69:ProjectViewProjectNode" />
+              <item name="sourcefit" type="462c0819:PsiDirectoryNode" />
+              <item name="Authentication" type="462c0819:PsiDirectoryNode" />
+              <item name="migrations" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="sourcefit" type="b2602c69:ProjectViewProjectNode" />
+              <item name="sourcefit" type="462c0819:PsiDirectoryNode" />
+              <item name="Authentication" type="462c0819:PsiDirectoryNode" />
+              <item name="Templates" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="sourcefit" type="b2602c69:ProjectViewProjectNode" />
+              <item name="sourcefit" type="462c0819:PsiDirectoryNode" />
+              <item name="Authentication" type="462c0819:PsiDirectoryNode" />
+              <item name="Templates" type="462c0819:PsiDirectoryNode" />
+              <item name="Authentication" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="sourcefit" type="b2602c69:ProjectViewProjectNode" />
+              <item name="sourcefit" type="462c0819:PsiDirectoryNode" />
               <item name="Core" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="sourcefit" type="b2602c69:ProjectViewProjectNode" />
+              <item name="sourcefit" type="462c0819:PsiDirectoryNode" />
+              <item name="Core" type="462c0819:PsiDirectoryNode" />
+              <item name="Templates" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="sourcefit" type="b2602c69:ProjectViewProjectNode" />
+              <item name="sourcefit" type="462c0819:PsiDirectoryNode" />
+              <item name="Core" type="462c0819:PsiDirectoryNode" />
+              <item name="Templates" type="462c0819:PsiDirectoryNode" />
+              <item name="Core" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="sourcefit" type="b2602c69:ProjectViewProjectNode" />
+              <item name="sourcefit" type="462c0819:PsiDirectoryNode" />
+              <item name="SourceFit" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -223,18 +276,18 @@
       <option name="presentableId" value="Default" />
       <updated>1557508241222</updated>
       <workItem from="1557508243474" duration="7405000" />
-      <workItem from="1557579340424" duration="275000" />
+      <workItem from="1557579340424" duration="5033000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="7680000" />
+    <option name="totallyTimeSpent" value="12438000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-7" y="-7" width="1295" height="695" extended-state="6" />
+    <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.27485853" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.18123667" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
@@ -248,7 +301,7 @@
       <window_info anchor="bottom" id="Version Control" order="8" />
       <window_info anchor="bottom" id="Database Changes" order="9" />
       <window_info anchor="bottom" id="Event Log" order="10" side_tool="true" />
-      <window_info anchor="bottom" id="Terminal" order="11" visible="true" weight="0.39893618" />
+      <window_info anchor="bottom" id="Terminal" order="11" visible="true" weight="0.41603467" />
       <window_info anchor="bottom" id="Python Console" order="12" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
@@ -265,66 +318,117 @@
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/healthTracker/__init__.py" />
-    <entry file="file://$PROJECT_DIR$/SourceFit/settings.py">
+    <entry file="file://$PROJECT_DIR$/Core/tests.py">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/Authentication/views.py">
+    <entry file="file://$PROJECT_DIR$/manage.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="102">
-          <caret line="7" column="44" selection-start-line="7" selection-start-column="44" selection-end-line="7" selection-end-column="44" />
-          <folding>
-            <element signature="e#0#35#0" expanded="true" />
-          </folding>
+        <state>
+          <caret line="1" column="58" selection-start-line="1" selection-start-column="58" selection-end-line="1" selection-end-column="58" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Core/views.py">
+    <entry file="file://$PROJECT_DIR$/Authentication/apps.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="51">
-          <caret line="4" column="33" selection-start-line="4" selection-start-column="33" selection-end-line="4" selection-end-column="33" />
-          <folding>
-            <element signature="e#0#35#0" expanded="true" />
-          </folding>
+          <caret line="3" column="26" selection-start-line="3" selection-start-column="6" selection-end-line="3" selection-end-column="26" />
         </state>
       </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/SourceFit/settings.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="136">
+          <caret line="37" column="30" lean-forward="true" selection-start-line="37" selection-start-column="30" selection-end-line="37" selection-end-column="30" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Authentication/Templates/Authentication/register.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret column="10" selection-start-column="10" selection-end-column="10" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Authentication/Templates/Authentication/login.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="119">
+          <caret line="7" column="22" lean-forward="true" selection-start-line="7" selection-start-column="22" selection-end-line="7" selection-end-column="22" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Authentication/models.py">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Core/Templates/Core/profile.html">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Core/Templates/Core/settings.html">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Core/Templates/Core/diet.html">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Core/Templates/Core/exercise.html">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Core/Templates/Core/goals.html">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Authentication/Templates/Authentication/base.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="459">
+          <caret line="27" column="7" lean-forward="true" selection-end-line="27" selection-end-column="7" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Core/Templates/Core/dashboard.html">
+      <provider selected="true" editor-type-id="text-editor" />
     </entry>
     <entry file="file://$PROJECT_DIR$/Authentication/urls.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="68">
-          <caret line="5" column="36" selection-start-line="5" selection-start-column="36" selection-end-line="5" selection-end-column="36" />
+          <caret line="4" selection-start-line="4" selection-end-line="5" selection-end-column="70" />
           <folding>
             <element signature="e#0#28#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Core/tests.py">
-      <provider selected="true" editor-type-id="text-editor" />
+    <entry file="file://$PROJECT_DIR$/SourceFit/urls.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="398">
+          <caret line="25" column="40" lean-forward="true" selection-start-line="25" selection-start-column="40" selection-end-line="25" selection-end-column="40" />
+        </state>
+      </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/Core/urls.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="51">
-          <caret line="4" column="40" selection-start-line="4" selection-start-column="40" selection-end-line="4" selection-end-column="40" />
+        <state relative-caret-position="153">
+          <caret line="9" column="51" lean-forward="true" selection-start-line="9" selection-start-column="51" selection-end-line="9" selection-end-column="51" />
           <folding>
             <element signature="e#0#37#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/SourceFit/urls.py">
+    <entry file="file://$PROJECT_DIR$/Core/Templates/Core/base.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="104">
-          <caret line="17" selection-start-line="17" selection-end-line="17" />
-          <folding>
-            <element signature="e#633#665#0" expanded="true" />
-          </folding>
+        <state relative-caret-position="255">
+          <caret line="15" selection-start-line="15" selection-end-line="16" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/manage.py">
+    <entry file="file://$PROJECT_DIR$/Authentication/views.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="17">
-          <caret line="1" column="58" selection-start-line="1" selection-start-column="58" selection-end-line="1" selection-end-column="58" />
+        <state>
+          <caret selection-end-line="25" selection-end-column="78" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Core/views.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="457">
+          <caret line="52" column="4" selection-start-line="52" selection-start-column="4" selection-end-line="52" selection-end-column="4" />
         </state>
       </provider>
     </entry>
