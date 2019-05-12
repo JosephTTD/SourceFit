@@ -3,51 +3,33 @@ from django.shortcuts import render
 posts = [
 
     {
-        'author' : 'joe',
+        'author' : 'Joe',
         'title' : 'posts',
-        'content' : 'succ your mom',
-        'date_posted' : 'June 17, 2019'
-    },
-    {
-        'author': 'berk',
-        'title': 'posts2',
-        'content': 'succ your mom part 2',
-        'date_posted': 'June 18, 2019'
+        'content' : 'succ your dad instead',
+        'date_posted' : 'June 17, 2019',
+        'current_weight' : '80',
+        'goal_weight' : '67',
+        'calories consumed' : '1270'
     }
 ]
-
-def exercise(request):
+def dashboard(request):
     context = {
         'posts': posts
     }
-    return render(request, 'Authentication/exercise.html', context)
+    return render(request, 'Core/dashboard.html', context, {})
+
+def profile(request):
+    return render(request, 'Core/profile.html', {'title': ''})
+
+def settings(request):
+    return render(request, 'Core/settings.html', {'title': 'Settings'})
 
 def diet(request):
-    return render(request, 'Authentication/diet.html', {'title': 'diet'})
+    return render(request, 'Core/diet.html', {'title': 'Diet'})
 
-from django.shortcuts import render
+def exercise(request):
+    return render(request, 'Core/exercise.html', {'title': 'Exercise'})
 
-posts = [
+def goals(request):
+    return render(request, 'Core/goals.html', {'title': 'Goals'})
 
-    {
-        'author' : 'joe',
-        'title' : 'posts',
-        'content' : 'succ your mom',
-        'date_posted' : 'June 17, 2019'
-    },
-    {
-        'author': 'berk',
-        'title': 'posts2',
-        'content': 'succ your mom part 2',
-        'date_posted': 'June 18, 2019'
-    }
-]
-
-def login(request):
-    context = {
-        'posts': posts
-    }
-    return render(request, 'Authentication/login.html', context)
-
-def register(request):
-    return render(request, 'Authentication/register.html', {'title': 'About'})
