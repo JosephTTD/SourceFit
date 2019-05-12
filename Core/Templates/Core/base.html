@@ -17,15 +17,15 @@
     {% else %}
     <title>Sourcefit</title>
     {% endif %}
+        <script src="https://unpkg.com/feather-icons"></script>
 </head>
 <body>
 
 
-
-    <div id="wrapper">
+    <div id="wrapper" class="col-lg-12">
 
         <!-- Sidebar -->
-        <div id="sidebar-wrapper">
+        <div id="sidebar-wrapper" class="col-lg-4">
             <ul class="sidebar-nav">
                 <li class="sidebar-brand">
                     <a href="#">
@@ -33,19 +33,19 @@
                     </a>
                 </li>
                 <li>
-                    <a href="{% url 'Core-dashboard' %}">Dashboard</a>
+                    <a href="{% url 'Core-dashboard' %}"><i data-feather="columns"></i> Dashboard</a>
                 </li>
                 <li>
-                    <a href="{% url 'Core-profile' %}">Profile</a>
+                    <a href="{% url 'Core-profile' %}"><i data-feather="user"></i> Profile </a>
                 </li>
                 <li>
-                    <a href="{% url 'Core-goals'%}">Goals</a>
+                    <a href="{% url 'Core-goals'%}"><i data-feather="target"></i> Goals</a>
                 </li>
                 <li>
-                    <a href="{% url 'Core-exercise'%}">Exercise</a>
+                    <a href="{% url 'Core-exercise'%}"><i data-feather="activity"></i> Exercise</a>
                 </li>
                 <li>
-                    <a href="{% url 'Core-diet'%}">Diet</a>
+                    <a href="{% url 'Core-diet'%}"><i data-feather="coffee"></i> Diet</a>
                 </li>
             </ul>
         </div>
@@ -65,6 +65,11 @@
 
     </div>
 
+
+    <script>
+      feather.replace()
+    </script>
+    <!-- feather icons package -->
 
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>

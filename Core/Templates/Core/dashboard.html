@@ -1,12 +1,56 @@
 {% extends "Core/base.html" %}
 {% block content %}
- <div class="jumbotron">
-    <h1>Bootstrap Tutorial</h1>
-    <p>Bootstrap is the most popular HTML, CSS, and JS framework for developing responsive, mobile-first projects on the web.</p>
+{%  for post in posts %}
+<h2>Hey {{ post.author }}! Let's see how your progress is going</h2>
+ <div class="jumbotron" style="margin-top: 70px;">
+    <h4>Today's motivation</h4>
+    <p>The Journey you fear venturing my possess the treasure you seek</p>
   </div>
-    {%  for post in posts %}
-        <h1>{{ post.title }}</h1>
-        <p>{{ post.author }} on {{ post.date_posted}}</p>
-        <p>{{ post.content }}</p>
+<div class="row">
+    <div class="col-md-6">
+        <div class="jumbotron">
+        <h4>Current weight</h4>
+            <h3 class="dash_data">{{post.current_weight}}</h3>
+        </div>
+    </div>
+    <div class="col-md-6">
+        <div class="jumbotron">
+        <h4>Goal weight</h4>
+            <h3 class="dash_data">{{ post.goal_weight}}</h3>
+        </div>
+    </div>
+</div>
+<div class="row">
+    <div class="col-md-6">
+        <div class="jumbotron">
+        <h4>You should reach your goal in</h4>
+            <h3 class="dash_data">{{ post.reach_goal }}</h3>
+        </div>
+    </div>
+    <div class="col-md-6">
+        <div class="jumbotron">
+        <h4>Calories you've consumed today</h4>
+            <h3 class="dash_data">{{ post.calories_consumed }}</h3>
+        </div>
+    </div>
+</div>
     {% endfor %}
-{% endblock content %}
+    {% endblock content %}
+
+
+<!--
+
+ posts = [
+
+    {
+        'author' : 'Joe',
+        'title' : 'posts',
+        'content' : 'succ your dad instead',
+        'date_posted' : 'June 17, 2019',
+        'current_weight' : '80',
+        'goal_weight' : '67',
+        'calories consumed' : '1270'
+    }
+]
+
+ -->

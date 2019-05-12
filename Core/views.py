@@ -9,7 +9,8 @@ posts = [
         'date_posted' : 'June 17, 2019',
         'current_weight' : '80',
         'goal_weight' : '67',
-        'calories consumed' : '1270'
+        'calories_consumed' : '1270',
+        'reach_goal' : '81'
     }
 ]
 def dashboard(request):

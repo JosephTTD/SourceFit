@@ -1,5 +1,6 @@
 body {
     font-family: "Segment Circular Std", sans-serif;
+    background: #f7f7f7;
 }
 #wrapper {
     padding-left: 0;
@@ -7,6 +8,9 @@ body {
     -moz-transition: all 0.5s ease;
     -o-transition: all 0.5s ease;
     transition: all 0.5s ease;
+}
+.jumbotron {
+    background: #fff;
 }
 
 #wrapper.toggled {
@@ -20,12 +24,7 @@ body {
     width: 0;
     height: 100%;
     margin-left: -250px;
-    overflow-y: auto;
-    background: #2c48d1;
-    -webkit-transition: all 0.5s ease;
-    -moz-transition: all 0.5s ease;
-    -o-transition: all 0.5s ease;
-    transition: all 0.5s ease;
+    background: #e5e6f8;
 }
 
 #wrapper.toggled #sidebar-wrapper {
@@ -34,12 +33,12 @@ body {
 
 #page-content-wrapper {
     width: 100%;
-    position: absolute;
+    position: relative;
     padding: 15px;
 }
 
 #wrapper.toggled #page-content-wrapper {
-    position: absolute;
+    position: relative;
     margin-right: -250px;
 }
 
@@ -62,7 +61,7 @@ body {
 .sidebar-nav li a {
     display: block;
     text-decoration: none;
-    color: #fff;
+    color: #333;
     font-size: 15px;
     font-weight: 400 !important;
 }
@@ -119,4 +118,18 @@ body {
         position: relative;
         margin-right: 10;
     }
+}
+
+.container {
+    width: 970px !important;
+}
+
+svg:not(:root) {
+    overflow: hidden;
+    vertical-align: middle;
+    width: 20px;
+}
+
+.dash_data {
+    font-size: 30px !important;
 }
