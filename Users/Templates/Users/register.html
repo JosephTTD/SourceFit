@@ -1,0 +1,22 @@
+{% extends "Users/base.html" %}
+{% load staticfiles %}
+{% block content %}
+<div class="login-form" style="margin-top: 20%">
+    <form action="" method="post">
+        <h2 class="text-center">Register</h2>
+        <div class="form-group">
+            <input type="text" class="form-control" placeholder="Email" required="required">
+        </div>
+        <div class="form-group">
+            <input type="text" class="form-control" placeholder="Username" required="required">
+        </div>
+        <div class="form-group">
+            <input type="password" class="form-control" placeholder="Password" required="required">
+        </div>
+        <div class="form-group">
+            <button type="submit" class="btn btn-primary btn-block">Register</button>
+        </div>
+    </form>
+    <p class="text-center"><a href="{% url 'Users-login' %}">Log in to your Account</a></p>
+</div>
+{% endblock content %}

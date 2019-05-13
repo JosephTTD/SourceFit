@@ -1,4 +1,25 @@
 {% extends "Core/base.html" %}
+{% load staticfiles %}
 {% block content %}
-    <h1>Profile</h1>
+{% for post in posts %}
+
+    <div>
+        <img class="profile" src="{% static 'media/profile-default.png' %}" style="height: 100px" alt="">
+        <span style="font-size: 30px; margin-left: 40px">@{{post.author}}</span>
+    </div>
+<div class="row" style="margin-top: 40px">
+    <div class="col-md-6">
+        <div class="jumbotron">
+        <h4>You should reach your goal in</h4>
+            <h3 class="dash_data">{{ post.reach_goal }}</h3>
+        </div>
+    </div>
+    <div class="col-md-6">
+        <div class="jumbotron">
+        <h4>Calories you've consumed today</h4>
+            <h3 class="dash_data">{{ post.calories_consumed }}</h3>
+        </div>
+    </div>
+</div>
+{% endfor %}
 {% endblock content %}
