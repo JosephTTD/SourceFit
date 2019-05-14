@@ -127,8 +127,6 @@ STATICFILES_DIRS = (
 
 AUTH_USER_MODEL = 'Users.CustomUser'
 
-DATE_INPUT_FORMATS = ('%d-%m-%Y', '%Y-%m-%d')
-
 AUTHENTICATION_BACKENDS = (
-    'sourcefit.Users.auth.EmailOrUsernameModelBackend',
-    'django.contrib.auth.backends.ModelBackend')
+    'Users.auth.EmailOrUsernameModelBackend',
+    'django.contrib.auth.backends.ModelBackend',)
