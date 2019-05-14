@@ -20,7 +20,10 @@ def dashboard(request):
     return render(request, 'Core/dashboard.html', context, {})
 
 def profile(request):
-    return render(request, 'Core/profile.html', {'title': ''})
+    context = {
+        'posts': posts
+    }
+    return render(request, 'Core/profile.html', context, {'title': ''})
 
 def settings(request):
     return render(request, 'Core/settings.html', {'title': 'Settings'})
@@ -29,8 +32,15 @@ def diet(request):
     return render(request, 'Core/diet.html', {'title': 'Diet'})
 
 def exercise(request):
-    return render(request, 'Core/exercise.html', {'title': 'Exercise'})
+    context = {
+        'posts': posts
+    }
+    return render(request, 'Core/exercise.html', context, {'title': 'Exercise'})
 
 def goals(request):
-    return render(request, 'Core/goals.html', {'title': 'Goals'})
+    context = {
+        'posts': posts
+    }
+
+    return render(request, 'Core/goals.html', context, {'title': 'Goals'})
 

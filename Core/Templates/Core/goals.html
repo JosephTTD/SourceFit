@@ -1,4 +1,31 @@
 {% extends "Core/base.html" %}
+{% load staticfiles %}
 {% block content %}
-    <h1>Goals</h1>
+{% for post in posts %}
+
+ <div class="jumbotron" style="margin-top: 70px;">
+    <p>Success leads to motivation and motivation leads to success. Add a new goal!</p>
+     <button style="border: none; background: blue; padding: 8px 12px; color: white; border-radius: 30px">Succ yer mam</button>
+  </div>
+<div class="row" style="margin-top: 40px">
+    <div class="col-md-4">
+        <div class="jumbotron">
+        <h4>You should reach your goal in</h4>
+            <h3 class="dash_data">{{ post.reach_goal }}</h3>
+        </div>
+    </div>
+    <div class="col-md-4">
+        <div class="jumbotron">
+        <h4>You goal Calories</h4>
+            <h3 class="dash_data">{{ post.calories_consumed }}</h3>
+        </div>
+    </div>
+    <div class="col-md-4">
+        <div class="jumbotron">
+        <h4>Your activity goals </h4>
+            <h3 class="dash_data">Run 10k in an hour</h3>
+        </div>
+    </div>
+</div>
+{% endfor %}
 {% endblock content %}
