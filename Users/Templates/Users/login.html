@@ -1,6 +1,12 @@
 {% extends "Users/base.html" %}
 {% load staticfiles %}
 {% block content %}
+
+<div class="col-lg-6" style="background: #000;">
+    <p>what up peeps
+    </p>
+</div>
+<div class="col-lg-6">
 <div class="login-form" style="margin-top: 20%">
     <form action="" method="post">
         <h2 class="text-center">Log in</h2>
@@ -15,5 +21,6 @@
         </div>
     </form>
     <p class="text-center"><a href="{% url 'Users-register' %}">Create an Account</a></p>
+</div>
 </div>
 {% endblock content %}

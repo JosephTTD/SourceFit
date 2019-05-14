@@ -26,10 +26,16 @@ def profile(request):
     return render(request, 'Core/profile.html', context, {'title': ''})
 
 def settings(request):
-    return render(request, 'Core/settings.html', {'title': 'Settings'})
+    context = {
+        'posts' : posts
+    }
+    return render(request, 'Core/settings.html', context, {'title': 'Settings'})
 
 def diet(request):
-    return render(request, 'Core/diet.html', {'title': 'Diet'})
+    context = {
+        'posts': posts
+    }
+    return render(request, 'Core/diet.html', context, {'title': 'Diet'})
 
 def exercise(request):
     context = {
