@@ -3,29 +3,51 @@
 {% block content %}
 {% for post in posts %}
 
- <div class="jumbotron" style="margin-top: 70px;">
-    <p>Success leads to motivation and motivation leads to success. Add a new goal!</p>
-     <button style="border: none; background: blue; padding: 8px 12px; color: white; border-radius: 30px">Succ yer mam</button>
+<div class="alert alert-info">
+  You can record/change info about your diet by clicking the button with the pencil icon
+</div>
+ <div class="jumbotron jumb3" style="margin-top: 40px;">
+     <h4>Caloric Intake</h4>
+    <h2>990/{{post.calories_consumed}}</h2>
+     <button><span data-feather="edit-2"></span>Record</button>
+
   </div>
 <div class="row" style="margin-top: 40px">
-    <div class="col-md-4">
-        <div class="jumbotron">
-        <h4>You should reach your goal in</h4>
-            <h3 class="dash_data">{{ post.reach_goal }}</h3>
+    <!--<div class="col-md-6">
+        <div class="jumbotron jumb1">
+        <h4>Food Consumed</h4>
+            <h3 class="dash_data">Add all the foods you've consumed</h3>
+            <button><span data-feather="edit-2"></span>Record</button>
+        </div>
+    </div>-->
+    <div class="col-md-6">
+        <div class="jumbotron jumb4">
+        <h4>Food Intake </h4>
+            <h3 class="dash_data">Add your meals</h3>
+            <button><span data-feather="edit-2"></span>Record</button>
         </div>
     </div>
-    <div class="col-md-4">
-        <div class="jumbotron">
+    <div class="col-md-6">
+        <div class="jumbotron jumb2">
         <h4>You goal Calories</h4>
-            <h3 class="dash_data">{{ post.calories_consumed }}</h3>
+            <h3 class="dash_data">{{ post.calories_consumed }} <span class="measure">kcal</span></h3>
+            <button><span data-feather="edit-2"></span>Change</button>
         </div>
     </div>
-    <div class="col-md-4">
-        <div class="jumbotron">
-        <h4>Your activity goals </h4>
-            <h3 class="dash_data">Run 10k in an hour</h3>
+    <div class="col-md-12">
+        <div class="alert alert-info alert-dismissible">
+  <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+            You can view the history of your meals by clicking on view in Meal Record
+</div>
+    </div>
+    <div class="col-md-5">
+        <div class="jumbotron jumb3">
+            <h4>Meal Record</h4>
+            <!--<h3 class="dash_data">Here's a list of your recorded meals</h3>-->
+            <button><span data-feather="eye"></span>view</button>
         </div>
     </div>
+
 </div>
 {% endfor %}
 {% endblock content %}

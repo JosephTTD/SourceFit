@@ -1,26 +1,28 @@
 {% extends "Users/base.html" %}
 {% load staticfiles %}
 {% block content %}
-
-<div class="col-lg-6" style="background: #000;">
-    <p>what up peeps
-    </p>
-</div>
 <div class="col-lg-6">
 <div class="login-form" style="margin-top: 20%">
+    <img class="logo" src="{% static 'media/logo.png' %}" alt=""><br><br>
     <form action="" method="post">
-        <h2 class="text-center">Log in</h2>
+        <h2 class="text-left">Welcome back</h2><br>
         <div class="form-group">
-            <input type="text" class="form-control" placeholder="Username" required="required">
+            <label for="Username">Username:</label>
+            <input type="text" class="form-control" placeholder="example: Firstname007" required="required">
         </div>
         <div class="form-group">
-            <input type="password" class="form-control" placeholder="Password" required="required">
+            <label for="password" >Password:</label>
+            <input type="password" class="form-control" placeholder="Enter 6 characters or more" required="required">
         </div>
         <div class="form-group">
-            <button type="submit" class="btn btn-primary btn-block">Log in</button>
+            <button type="submit" class="btn btn-primary btn-block">Sign in</button>
         </div>
     </form>
     <p class="text-center"><a href="{% url 'Users-register' %}">Create an Account</a></p>
 </div>
 </div>
+<div class="col-lg-6 login-img">
+    <h1 id="login-text">Your journey to better health <br> starts here</h1>
+</div>
+
 {% endblock content %}

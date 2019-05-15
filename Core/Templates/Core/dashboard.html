@@ -1,14 +1,17 @@
 {% extends "Core/base.html" %}
 {% block content %}
 {%  for post in posts %}
-<h2>Hey {{ post.author }}! Let's see how your progress is going</h2>
- <div class="jumbotron" style="margin-top: 70px; background: #333333;">
+<h2 style="font-size: 25px !important;">Hey {{ post.author }}! Let's see how your progress is going</h2>
+ <div class="jumbotron jumb5" style="margin-top: 70px;">
     <h4>Today's motivation</h4>
     <p>The Journey you fear venturing my possess the treasure you seek</p>
   </div>
+<div class="alert alert-info">
+  Here lies your most essential information about your health
+</div>
 <div class="row">
     <div class="col-md-6">
-        <div class="jumbotron jumb1">
+        <div class="jumbotron jumb1 fade-right">
         <h4>Current weight</h4>
             <h3 class="dash_data">{{post.current_weight}} <span class="measure">kg</span></h3>
         </div>
