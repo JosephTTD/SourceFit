@@ -14,7 +14,7 @@ def register_view(request):
             messages.success(request, f'Account created for {username}.')
             return redirect('Users-login')
     else:
-        form = UserRegisterForm()
+        form = UserRegisnterForm()
     return render(request, 'Users/register.html', {'form': form})
 
 
