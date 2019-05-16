@@ -13,10 +13,10 @@ https://docs.djangoproject.com/en/2.2/ref/settings/
 import os
 from unipath import Path
 
-PROJECT_DIR = Path(__file__).parent
+PROJECT_DIR = Path(_file_).parent
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
-BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(_file_)))
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/2.2/howto/deployment/checklist/
@@ -127,8 +127,6 @@ STATICFILES_DIRS = (
 
 AUTH_USER_MODEL = 'Users.CustomUser'
 
-DATE_INPUT_FORMATS = ('%d-%m-%Y', '%Y-%m-%d')
-
 AUTHENTICATION_BACKENDS = (
-    'sourcefit.Users.auth.EmailOrUsernameModelBackend',
-    'django.contrib.auth.backends.ModelBackend')
+    'Users.auth.EmailOrUsernameModelBackend',
+    'django.contrib.auth.backends.ModelBackend',)

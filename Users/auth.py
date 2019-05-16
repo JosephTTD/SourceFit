@@ -13,14 +13,14 @@ class EmailOrUsernameModelBackend(ModelBackend):
     """
 
     def authenticate(self, request, username=None, password=None, **kwargs):
-        # n.b. Django <2.1 does not pass the `request`
+        # n.b. Django <2.1 does not pass the request
 
-        user_model = settings.AUTH_USER_MODEL
+        user_model = get_user_model()
 
         if username is None:
             username = kwargs.get(user_model.USERNAME_FIELD)
 
-        # The `username` field is allows to contain `@` characters so
+        # The username field is allows to contain @ characters so
         # technically a given email address could be present in either field,
         # possibly even for different users, so we'll query for all matching
         # records and test each one.

@@ -6,6 +6,10 @@
     <img class="logo" src="{% static 'media/logo.png' %}" alt=""><br><br>
     <form action="" method="post">
         <h2 class="text-left">Glad to have you</h2>
+    <form action={% url 'Users-register' %} method="post">
+        {% csrf_token %}
+        {{ form }}
+        <!--<h2 class="text-center">Register</h2>
         <div class="form-group">
              <label for="First name" >First name: </label>
             <input type="text" class="form-control" placeholder="example: John" required="required">
@@ -25,8 +29,9 @@
         <div class="form-group">
             <button type="submit" class="btn btn-primary btn-block">Register</button>
         </div>
+        <p class="text-center"><a href="{% url 'Users-login' %}">Log in to your Account</a></p>-->
+        <input type="submit" value="Register">
     </form>
-    <p class="text-center"><a href="{% url 'Users-login' %}">Log in to your Account</a></p>
 </div>
 </div>
 <div class="col-lg-6 login-img">
