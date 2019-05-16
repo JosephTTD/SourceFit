@@ -10,7 +10,9 @@ posts = [
         'current_weight' : '80',
         'goal_weight' : '67',
         'calories_consumed' : '1270',
-        'reach_goal' : '81'
+        'reach_goal' : '81',
+        'First_name' : 'Joseph',
+        'Second_name' : 'Dada'
     }
 ]
 def dashboard(request):
@@ -23,13 +25,19 @@ def profile(request):
     context = {
         'posts': posts
     }
-    return render(request, 'Core/profile.html', context, {'title': ''})
+    return render(request, 'Core/profile.html', context, {'title': 'Profile'})
 
 def settings(request):
-    return render(request, 'Core/settings.html', {'title': 'Settings'})
+    context = {
+        'posts' : posts
+    }
+    return render(request, 'Core/settings.html', context, {'title': 'Settings'})
 
 def diet(request):
-    return render(request, 'Core/diet.html', {'title': 'Diet'})
+    context = {
+        'posts': posts
+    }
+    return render(request, 'Core/diet.html', context, {'title': 'Diet'})
 
 def exercise(request):
     context = {

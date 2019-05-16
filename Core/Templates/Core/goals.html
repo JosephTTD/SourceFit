@@ -3,29 +3,56 @@
 {% block content %}
 {% for post in posts %}
 
- <div class="jumbotron" style="margin-top: 70px;">
+ <div class="jumbotron jumb5" style="margin-top: 70px;">
     <p>Success leads to motivation and motivation leads to success. Add a new goal!</p>
-     <button style="border: none; background: blue; padding: 8px 12px; color: white; border-radius: 30px">Succ yer mam</button>
+     <button style="" id="addAGoalBtn"><span data-feather="edit-2"></span>Add a goal</button>
   </div>
+
+<div class="alert alert-info">
+  Clicking Complete marks the goal as complete and removes it
+</div>
 <div class="row" style="margin-top: 40px">
     <div class="col-md-4">
-        <div class="jumbotron">
+        <div class="jumbotron jumb2">
         <h4>You should reach your goal in</h4>
-            <h3 class="dash_data">{{ post.reach_goal }}</h3>
+            <h3 class="dash_data">{{ post.reach_goal }} <span class="measure">days</span></h3>
+             <button><span data-feather="check-circle"></span>Complete</button>
         </div>
     </div>
     <div class="col-md-4">
-        <div class="jumbotron">
+        <div class="jumbotron jumb4">
         <h4>You goal Calories</h4>
-            <h3 class="dash_data">{{ post.calories_consumed }}</h3>
+            <h3 class="dash_data">{{ post.calories_consumed }} <span class="measure">kcal</span></h3>
+             <button><span data-feather="check-circle"></span>Complete</button>
         </div>
     </div>
     <div class="col-md-4">
-        <div class="jumbotron">
+        <div class="jumbotron jumb3">
         <h4>Your activity goals </h4>
             <h3 class="dash_data">Run 10k in an hour</h3>
+             <button><span data-feather="check-circle"></span>Complete</button>
         </div>
     </div>
 </div>
+
+<!-- Trigger/Open The Modal -->
+
+<!-- The Modal -->
+<div id="addAGoal" class="modal">
+
+  <!-- Modal content -->
+  <div class="modal-content">
+    <span class="close">&times;</span>
+      <form class="formform">
+          <label style="font-size:18px;">What's your goal?:</label>
+          <input class="modal-form" type="text" placeholder="example: Complete 10 pushups"/>
+          <label style="font-size:18px;">When would you like to complete it?:</label>
+          <input class="modal-form" type="date" placeholder="When do you expect to reach this goal?"/>
+          <input type="submit" class="btn modal-btn" />
+      </form>
+  </div>
+
+</div>
+
 {% endfor %}
 {% endblock content %}

@@ -1,36 +1,39 @@
 {% extends "Core/base.html" %}
 {% block content %}
 {%  for post in posts %}
-<h2>Hey {{ post.author }}! Let's see how your progress is going</h2>
- <div class="jumbotron" style="margin-top: 70px;">
+<h2 style="font-size: 25px !important;">Hey {{ post.author }}! Let's see how your progress is going</h2>
+ <div class="jumbotron jumb5" style="margin-top: 70px;">
     <h4>Today's motivation</h4>
     <p>The Journey you fear venturing my possess the treasure you seek</p>
   </div>
+<div class="alert alert-info">
+  Here lies your most essential information about your health
+</div>
 <div class="row">
     <div class="col-md-6">
-        <div class="jumbotron">
+        <div class="jumbotron jumb1 fade-right">
         <h4>Current weight</h4>
-            <h3 class="dash_data">{{post.current_weight}}</h3>
+            <h3 class="dash_data">{{post.current_weight}} <span class="measure">kg</span></h3>
         </div>
     </div>
     <div class="col-md-6">
-        <div class="jumbotron">
+        <div class="jumbotron jumb2">
         <h4>Goal weight</h4>
-            <h3 class="dash_data">{{ post.goal_weight}}</h3>
+            <h3 class="dash_data">{{ post.goal_weight}}  <span class="measure">kg</span></h3>
         </div>
     </div>
 </div>
 <div class="row">
     <div class="col-md-6">
-        <div class="jumbotron">
+        <div class="jumbotron jumb3">
         <h4>You should reach your goal in</h4>
-            <h3 class="dash_data">{{ post.reach_goal }}</h3>
+            <h3 class="dash_data">{{ post.reach_goal }}  <span class="measure">days</span></h3>
         </div>
     </div>
     <div class="col-md-6">
-        <div class="jumbotron">
+        <div class="jumbotron jumb4">
         <h4>Calories you've consumed today</h4>
-            <h3 class="dash_data">{{ post.calories_consumed }}</h3>
+            <h3 class="dash_data">{{ post.calories_consumed }}  <span class="measure">kcal</span></h3>
         </div>
     </div>
 </div>

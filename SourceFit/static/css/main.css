@@ -1,11 +1,13 @@
 body {
     font-family: "Circular Std Book", sans-serif;
-    background: #f7f7f7;
+    background: #fff;
+    overflow-x: hidden;
 }
 
 b {
     font-family: "Circular Std Medium", sans-serif;
 }
+
 #wrapper {
     padding-left: 0;
     -webkit-transition: all 0.5s ease;
@@ -13,8 +15,15 @@ b {
     -o-transition: all 0.5s ease;
     transition: all 0.5s ease;
 }
+
 .jumbotron {
-    background: #fff;
+    background: auto;
+    color: #fff;
+    padding: 20px 40px !important;
+}
+
+h4 {
+    font-size: 14px !important;
 }
 
 #wrapper.toggled {
@@ -28,7 +37,7 @@ b {
     width: 0;
     height: 100%;
     margin-left: -250px;
-    background: #e5e6f8;
+    background: #4958B7;
 }
 
 #wrapper.toggled #sidebar-wrapper {
@@ -59,13 +68,13 @@ b {
 
 .sidebar-nav li {
     text-indent: 20px;
-    line-height: 80px;
+    line-height: 65px;
 }
 
 .sidebar-nav li a {
     display: block;
     text-decoration: none;
-    color: #333;
+    color: #dcdcdc;
     font-size: 15px;
     font-weight: 400 !important;
     margin-right: 30px;
@@ -75,7 +84,13 @@ b {
 .sidebar-nav li a:hover {
     text-decoration: none;
     color: #fff;
-    background: rgba(255,255,255,0.2);
+    background: rgba(255, 255, 255, 0.2);
+}
+
+.sidebar-nav li a:active {
+    text-decoration: none;
+    color: #fff;
+    background: rgba(255, 255, 255, 0.2);
 }
 
 .sidebar-nav li a:active,
@@ -98,7 +113,7 @@ b {
     background: none;
 }
 
-@media(min-width:768px) {
+@media (min-width: 768px) {
     #wrapper {
         padding-left: 250px;
     }
@@ -108,7 +123,7 @@ b {
     }
 
     #sidebar-wrapper {
-        width: 250px;
+        width: 200px;
     }
 
     #wrapper.toggled #sidebar-wrapper {
@@ -134,39 +149,210 @@ svg:not(:root) {
     overflow: hidden;
     vertical-align: middle;
     width: 20px;
+    margin-bottom: 5px;
+    margin-right: 14px;
 }
 
 .dash_data {
     font-size: 30px !important;
+    text-align: right;
 }
-.user_name  {
+
+.user_name {
     font-size: 20px;
 }
 
 button {
-    border: none;
-    background: blue;
-    padding: 8px 12px;
+    border: 1px solid white;
+    background: transparent;
+    padding: 8px 20px;
     color: white;
     border-radius: 30px;
 }
+
 .login-form {
     width: 340px;
     margin: 50px auto;
 }
+
 .login-form form {
     margin-bottom: 15px;
-    background: #f7f7f7;
-    padding: 30px;
+    background: transparent;
+    /* padding: 30px;*/
 }
+
 .login-form h2 {
     margin: 0 0 15px;
 }
+
 .form-control, .btn {
     min-height: 38px;
     border-radius: 2px;
 }
+
 .btn {
     font-size: 15px;
+    background: #4958B7;
+    padding: 12px 12px;
+    border-radius: 4px;
+}
+
+.jumb1 {
+    background: -webkit-linear-gradient(90deg, rgb(44, 255, 161), rgb(19, 185, 208));
+    background: linear-gradient(90deg, rgb(44, 255, 161), rgb(19, 185, 208));
+}
+
+.jumb2 {
+
+    background: -webkit-linear-gradient(90deg, rgb(255, 23, 64), rgb(182, 6, 152));
+    background: linear-gradient(90deg, rgb(255, 23, 64), rgb(182, 6, 152));
+
+
+}
+
+.jumb3 {
+    background: -webkit-linear-gradient(90deg, rgb(243, 194, 35), rgb(255, 122, 88));
+    background: linear-gradient(90deg, rgb(243, 194, 35), rgb(255, 122, 88));
+}
+
+.jumb4 {
+    background: -webkit-linear-gradient(90deg, rgb(35, 243, 232), rgb(131, 88, 255));
+    background: linear-gradient(90deg, rgb(35, 243, 232), rgb(131, 88, 255));
+}
+
+.jumb5 {
+    background: #6B7FFE;
+}
+
+.jumb6 {
+
+    background: -webkit-linear-gradient(125deg, rgb(255, 0, 0), rgb(243, 207, 0));
+    background: linear-gradient(125deg, rgb(255, 0, 0), rgb(243, 207, 0));
+
+}
+
+.measure {
+    font-size: 15px;
+}
+
+.pro_jumbo {
+    min-height: 150px
+}
+
+.login-img {
+    background: url("/static/media/running.jpg");
+    height: 100vh;
+    background-size: 120%;
+    background-repeat: no-repeat;
+    background-position: 30% 0%;
+}
+
+.logo {
+    background-size: 10%;
+    width: 10%;
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-control {
+    padding: 25px 12px !important;
+    box-shadow: none;
+    border: 1px solid #e0e0e0;
+    border-radius: 4px;
+    outline: none;
+}
+
+label {
+    font-size: 16px;
+    font-weight: 100;
+    color: #717171;
+}
+
+#login-text {
+    font-family: "Circular Std Bold";
+    text-align: left;
+    margin-top: 40%;
+    color: #4958B7;
+    font-size: 43px;
+}
+
+/* The Modal (background) */
+.modal {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Sit on top */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgb(0, 0, 0); /* Fallback color */
+    background-color: rgba(0, 0, 0, 0.4); /* Black w/ opacity */
+}
+
+.modal {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Sit on top */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgb(0, 0, 0); /* Fallback color */
+    background-color: rgba(0, 0, 0, 0.4); /* Black w/ opacity */
+}
+
+
+/* Modal Content/Box */
+.modal-content {
+    background-color: #fefefe;
+    margin: 15% auto; /* 15% from the top and centered */
+    padding: 50px 20px;
+    padding-top: 20px;
+    border: none;
+    width: 50%; /* Could be more or less, depending on screen size */
+    box-shadow: none !important;
+    margin-top: 100px;
+}
+
+/* The Close Button */
+.close {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
     font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.modal-form {
+    margin: 0 auto;
+    width: 100%;
+    padding: 10px 6px;
+    font-size: 21px;
+    border-radius: 4px;
+    border: 1px solid #cccccc;
+    margin-bottom: 20px !important;
+}
+
+.formform {
+    margin: 0 auto;
+    padding: 40px;
+}
+
+.modal-btn {
+    color: #fff;
+    border-radius: 30px;
+    float: right;
+    padding: 12px 20px;
+    margin-top: 10px;
+    margin-bottom: 10px;
 }

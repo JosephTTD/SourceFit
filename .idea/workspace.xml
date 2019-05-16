@@ -1,10 +1,29 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="BookmarkManager">
-    <bookmark url="file://$PROJECT_DIR$/Users/Templates/Users/register.html" line="19" />
+    <bookmark url="file://$PROJECT_DIR$/Users/Templates/Users/register.html" line="30" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="a806afe5-d18e-4378-858a-a993840f275e" name="Default Changelist" comment="" />
+    <list default="true" id="a806afe5-d18e-4378-858a-a993840f275e" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/Core/Templates/Core/base.html" beforeDir="false" afterPath="$PROJECT_DIR$/Core/Templates/Core/base.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Core/Templates/Core/dashboard.html" beforeDir="false" afterPath="$PROJECT_DIR$/Core/Templates/Core/dashboard.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Core/Templates/Core/diet.html" beforeDir="false" afterPath="$PROJECT_DIR$/Core/Templates/Core/diet.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Core/Templates/Core/exercise.html" beforeDir="false" afterPath="$PROJECT_DIR$/Core/Templates/Core/exercise.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Core/Templates/Core/goals.html" beforeDir="false" afterPath="$PROJECT_DIR$/Core/Templates/Core/goals.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Core/Templates/Core/profile.html" beforeDir="false" afterPath="$PROJECT_DIR$/Core/Templates/Core/profile.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Core/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/Core/views.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SourceFit/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/SourceFit/settings.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SourceFit/static/css/main.css" beforeDir="false" afterPath="$PROJECT_DIR$/SourceFit/static/css/main.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Users/Templates/Users/base.html" beforeDir="false" afterPath="$PROJECT_DIR$/Users/Templates/Users/base.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Users/Templates/Users/login.html" beforeDir="false" afterPath="$PROJECT_DIR$/Users/Templates/Users/login.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Users/Templates/Users/register.html" beforeDir="false" afterPath="$PROJECT_DIR$/Users/Templates/Users/register.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Users/admin.py" beforeDir="false" afterPath="$PROJECT_DIR$/Users/admin.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Users/auth.py" beforeDir="false" afterPath="$PROJECT_DIR$/Users/auth.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Users/forms.py" beforeDir="false" afterPath="$PROJECT_DIR$/Users/forms.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Users/migrations/0001_initial.py" beforeDir="false" afterPath="$PROJECT_DIR$/Users/migrations/0001_initial.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Users/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/Users/models.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Users/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/Users/views.py" afterDir="false" />
+    </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -35,11 +54,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/Users/views.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="407">
-              <caret line="36" column="21" selection-start-line="36" selection-start-column="21" selection-end-line="36" selection-end-column="21" />
+            <state relative-caret-position="51">
+              <caret line="16" column="24" selection-start-line="16" selection-start-column="24" selection-end-line="16" selection-end-column="24" />
               <folding>
                 <element signature="e#0#35#0" expanded="true" />
               </folding>
@@ -63,16 +82,16 @@
         <entry file="file://$PROJECT_DIR$/Users/migrations/0001_initial.py">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="340">
-              <caret line="38" column="8" lean-forward="true" selection-start-line="38" selection-start-column="8" selection-end-line="38" selection-end-column="8" />
+              <caret line="38" column="8" selection-start-line="38" selection-start-column="8" selection-end-line="38" selection-end-column="8" />
             </state>
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Core/models.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="187">
-              <caret line="11" selection-start-line="11" selection-end-line="11" />
+            <state relative-caret-position="238">
+              <caret line="14" column="24" selection-start-line="14" selection-start-column="24" selection-end-line="14" selection-end-column="24" />
               <folding>
                 <element signature="e#0#21#0" expanded="true" />
               </folding>
@@ -83,17 +102,20 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Users/Templates/Users/register.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="340">
-              <caret line="20" column="53" selection-start-line="20" selection-start-column="53" selection-end-line="20" selection-end-column="53" />
+            <state relative-caret-position="527">
+              <caret line="31" column="53" selection-start-line="31" selection-start-column="53" selection-end-line="31" selection-end-column="53" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Users/apps.py">
+        <entry file="file://$PROJECT_DIR$/Users/urls.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="85">
-              <caret line="5" lean-forward="true" selection-end-line="5" />
+            <state relative-caret-position="170">
+              <caret line="10" selection-start-line="10" selection-end-line="10" />
+              <folding>
+                <element signature="e#0#19#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -102,7 +124,7 @@
         <entry file="file://$PROJECT_DIR$/Users/admin.py">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="181">
-              <caret line="21" column="30" selection-end-line="35" />
+              <caret line="21" column="30" selection-end-line="34" selection-end-column="48" />
               <folding>
                 <element signature="e#0#24#0" expanded="true" />
               </folding>
@@ -114,7 +136,7 @@
         <entry file="file://$PROJECT_DIR$/Users/Templates/Users/login.html">
           <provider selected="true" editor-type-id="text-editor">
             <state>
-              <caret selection-end-line="20" selection-end-column="22" />
+              <caret selection-end-line="39" selection-end-column="22" />
             </state>
           </provider>
         </entry>
@@ -127,8 +149,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/SourceFit/settings.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="2023">
-              <caret line="119" lean-forward="true" selection-start-line="119" selection-end-line="119" />
+            <state relative-caret-position="2040">
+              <caret line="120" selection-start-line="120" selection-end-line="120" />
               <folding>
                 <element signature="e#310#319#0" expanded="true" />
               </folding>
@@ -179,8 +201,8 @@
         <option value="$PROJECT_DIR$/SourceFit/settings.py" />
         <option value="$PROJECT_DIR$/Users/admin.py" />
         <option value="$PROJECT_DIR$/Users/forms.py" />
-        <option value="$PROJECT_DIR$/Users/views.py" />
         <option value="$PROJECT_DIR$/Core/models.py" />
+        <option value="$PROJECT_DIR$/Users/views.py" />
       </list>
     </option>
   </component>
@@ -312,15 +334,15 @@
       <workItem from="1557826183064" duration="20288000" />
       <workItem from="1557927630073" duration="730000" />
       <workItem from="1557947560758" duration="1223000" />
-      <workItem from="1558006036138" duration="6062000" />
+      <workItem from="1558006036138" duration="6380000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="83553000" />
+    <option name="totallyTimeSpent" value="83871000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-7" y="-7" width="1295" height="695" extended-state="7" />
+    <frame x="-7" y="-7" width="1295" height="695" extended-state="6" />
     <editor active="true" />
     <layout>
       <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.16087309" />
@@ -483,16 +505,6 @@
     <entry file="file://$PROJECT_DIR$/Core/Templates/Core/dashboard.html">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/Users/urls.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="170">
-          <caret line="10" lean-forward="true" selection-end-line="10" />
-          <folding>
-            <element signature="e#0#19#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Users/models.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="175">
@@ -530,7 +542,7 @@
     <entry file="file://$PROJECT_DIR$/Users/admin.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="181">
-          <caret line="21" column="30" selection-end-line="35" />
+          <caret line="21" column="30" selection-end-line="34" selection-end-column="48" />
           <folding>
             <element signature="e#0#24#0" expanded="true" />
           </folding>
@@ -542,8 +554,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/SourceFit/settings.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2023">
-          <caret line="119" lean-forward="true" selection-start-line="119" selection-end-line="119" />
+        <state relative-caret-position="2040">
+          <caret line="120" selection-start-line="120" selection-end-line="120" />
           <folding>
             <element signature="e#310#319#0" expanded="true" />
           </folding>
@@ -553,31 +565,21 @@
     <entry file="file://$PROJECT_DIR$/Users/Templates/Users/login.html">
       <provider selected="true" editor-type-id="text-editor">
         <state>
-          <caret selection-end-line="20" selection-end-column="22" />
+          <caret selection-end-line="39" selection-end-column="22" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/Users/Templates/Users/register.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="340">
-          <caret line="20" column="53" selection-start-line="20" selection-start-column="53" selection-end-line="20" selection-end-column="53" />
+        <state relative-caret-position="527">
+          <caret line="31" column="53" selection-start-line="31" selection-start-column="53" selection-end-line="31" selection-end-column="53" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/Users/migrations/0001_initial.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="340">
-          <caret line="38" column="8" lean-forward="true" selection-start-line="38" selection-start-column="8" selection-end-line="38" selection-end-column="8" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Users/views.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="407">
-          <caret line="36" column="21" selection-start-line="36" selection-start-column="21" selection-end-line="36" selection-end-column="21" />
-          <folding>
-            <element signature="e#0#35#0" expanded="true" />
-          </folding>
+          <caret line="38" column="8" selection-start-line="38" selection-start-column="8" selection-end-line="38" selection-end-column="8" />
         </state>
       </provider>
     </entry>
@@ -593,10 +595,30 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/Core/models.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="187">
-          <caret line="11" selection-start-line="11" selection-end-line="11" />
+        <state relative-caret-position="238">
+          <caret line="14" column="24" selection-start-line="14" selection-start-column="24" selection-end-line="14" selection-end-column="24" />
           <folding>
             <element signature="e#0#21#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Users/urls.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="170">
+          <caret line="10" selection-start-line="10" selection-end-line="10" />
+          <folding>
+            <element signature="e#0#19#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Users/views.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="51">
+          <caret line="16" column="24" selection-start-line="16" selection-start-column="24" selection-end-line="16" selection-end-column="24" />
+          <folding>
+            <element signature="e#0#35#0" expanded="true" />
           </folding>
         </state>
       </provider>
