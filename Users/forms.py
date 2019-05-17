@@ -21,12 +21,12 @@ class UserLoginForm(AuthenticationForm):
 class UserRegisterForm(UserCreationForm):
 
     username = forms.CharField(widget=forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'example: healthlover101'}))
-    dob = forms.DateField(required=True, widget=forms.SelectDateWidget(years=range(2019, 1920, -1), attrs={'class': 'date-form'}))
+    dob = forms.DateField(label="Date of Birth", required=True, widget=forms.SelectDateWidget(years=range(2019, 1920, -1), attrs={'class': 'date-form'}))
     email = forms.EmailField(widget=forms.EmailInput(attrs={'class': 'form-control', 'placeholder': 'example: you@mail.com'}))
     first_name = forms.CharField(widget=forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'example: John'}))
     last_name = forms.CharField(widget=forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'example: Smith'}))
-    password1 = forms.CharField(widget=forms.PasswordInput(attrs={'class': 'form-control', 'placeholder': 'example: Your Password should be 6 or more characters'}))
-    password2 = forms.CharField(widget=forms.PasswordInput(attrs={'class': 'form-control', 'placeholder': 'example: Confirm your password'}))
+    password1 = forms.CharField(label = "Create Password", widget=forms.PasswordInput(attrs={'class': 'form-control', 'placeholder': 'example: Your Password should be 6 or more characters'}))
+    password2 = forms.CharField(label = "Confirm your mom", widget=forms.PasswordInput(attrs={'class': 'form-control', 'placeholder': 'example: Confirm your password'}))
     gender = forms.ChoiceField(widget=forms.Select(attrs={'class': 'choice-form', 'placeholder': 'example: healthlover101'}), choices=[(sex.name, sex.value) for sex in GenderEnum])
     heightUnits = forms.ChoiceField(widget=forms.Select(attrs={'class': 'choice-form', 'placeholder': 'example: healthlover101'}), choices=[(unit.name, unit.value) for unit in HeightMeasurementUnits])
     weightUnits = forms.ChoiceField(widget=forms.Select(attrs={'class': 'choice-form', 'placeholder': 'example: healthlover101'}),choices=[(unit.name, unit.value) for unit in WeightMeasurementUnits])
@@ -68,9 +68,9 @@ class UserRegisterForm(UserCreationForm):
     class Meta:
         model = get_user_model()
         fields = (
-         'username', 'email', 'first_name', 'last_name', 'password1', 'password2', 'dob', 'gender', 'heightUnits',
-            'weightUnits', 'height', 'weight')
+         'username', 'email', 'first_name', 'last_name', 'password1', 'password2', 'dob', 'gender', 'height', 'heightUnits',
+            'weight', 'weightUnits')
         labels = {
-            'password1': _('Create a Password'),
-            'password2' : _('Confirm your Password')
+            'password' : 'Create a Password',
+            'password2' : 'Confirm your Password'
         }
