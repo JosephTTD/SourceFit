@@ -1,15 +1,15 @@
 import datetime
 from django import forms
-from .models import CustomUser
 from django.conf import settings
 from django.forms import DateField
+from django.contrib.auth import get_user_model
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.forms import AuthenticationForm
 from django.forms.widgets import PasswordInput, TextInput
 
 
 class UserLoginForm(AuthenticationForm):
-    username = forms.CharField(widget=TextInput(attrs={'class': 'validate', 'placeholder': 'Username/Email'}))
+    username = forms.CharField(widget=TextInput(attrs={'class': 'form-control', 'placeholder': 'Username/Email'}))
     password = forms.CharField(widget=PasswordInput(attrs={'placeholder': 'Password'}))
 
 
@@ -31,14 +31,26 @@ class UserRegisterForm(UserCreationForm):
             user.save()
         return user
 
-    def clean_date(self):
+    def clean(self):
         date = self.cleaned_data['dob']
+        height = self.cleaned_data['height']
+        weight = self.cleaned_data['weight']
+        username = self.cleaned_data['username']
+        email = self.cleaned_data['email']
+        if get_user_model().objects.filter(username=username).exists():
+            raise forms.ValidationError("That username is already taken")
+        if get_user_model().objects.filter(email=email).exists():
+            raise forms.ValidationError("That email is already taken")
         if date > datetime.date.today():
             raise forms.ValidationError("The date cannot be in the future!")
-        return date
+        if height <= 0:
+            raise forms.ValidationError("Height must be positive!")
+        if weight <= 0:
+            raise forms.ValidationError("Weight must be positive!")
+        return self.cleaned_data
 
     class Meta:
-        model = CustomUser
+        model = get_user_model()
         fields = (
             'username', 'email', 'first_name', 'last_name', 'password1', 'password2', 'dob', 'gender', 'heightUnits',
             'weightUnits', 'height', 'weight',)
