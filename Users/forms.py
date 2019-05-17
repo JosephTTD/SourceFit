@@ -8,6 +8,13 @@ from django.conf import settings
 from django.forms import DateField
 from django.contrib.auth.forms import UserCreationForm
 from django.utils.translation import ugettext_lazy as _
+from django.contrib.auth.forms import AuthenticationForm
+from django.forms.widgets import PasswordInput, TextInput
+
+
+class UserLoginForm(AuthenticationForm):
+    username = forms.CharField(widget=TextInput(attrs={'class': 'form-control', 'placeholder': 'Enter usrname or Email'}))
+    password = forms.CharField(widget=PasswordInput(attrs={'placeholder': 'Enter your password'}))
 
 
 class UserRegisterForm(UserCreationForm):

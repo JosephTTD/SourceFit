@@ -18,12 +18,13 @@
         <div class="form-group">
             <button type="submit" class="btn btn-primary btn-block">Sign in</button>
         </div>
-        <!--{{ form }}
-        //<input type="submit" value="Login">-->
+        <!--//{{ form }}
+        <input type="submit" value="Login">-->
     <!--{{form}}-->
     </form>
 
 <form action="" method="post">
+    {% csrf_token %}
     <table>
 
         <tr><td>{{form}}</td></tr>
