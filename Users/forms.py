@@ -4,6 +4,13 @@ from .models import CustomUser
 from django.conf import settings
 from django.forms import DateField
 from django.contrib.auth.forms import UserCreationForm
+from django.contrib.auth.forms import AuthenticationForm
+from django.forms.widgets import PasswordInput, TextInput
+
+
+class UserLoginForm(AuthenticationForm):
+    username = forms.CharField(widget=TextInput(attrs={'class': 'validate', 'placeholder': 'Username/Email'}))
+    password = forms.CharField(widget=PasswordInput(attrs={'placeholder': 'Password'}))
 
 
 class UserRegisterForm(UserCreationForm):
