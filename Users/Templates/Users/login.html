@@ -5,6 +5,7 @@
 <div class="login-form" style="margin-top: 20%">
     <img class="logo" src="{% static 'media/logo.png' %}" alt=""><br><br>
     <h2 class="text-left">Welcome back</h2><br>
+    <!--
     <form action={% url 'Users-login' %} method="post">
         {% csrf_token %}
         <div class="form-group">
@@ -21,15 +22,10 @@
         <!--//{{ form }}
         <input type="submit" value="Login">-->
     <!--{{form}}-->
-    </form>
 
 <form action="" method="post">
     {% csrf_token %}
-    <table>
-
-        <tr><td>{{form}}</td></tr>
-
-    </table>
+  {{form}}<br>
     <input type="submit" class="btn btn-primary btn-block" value="Sign in">
 </form>
 </div>
