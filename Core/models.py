@@ -5,11 +5,11 @@ from django.db import models
 
 
 class GoalChoice(Enum):
-    CUT : "Cut"
-    MAINTAIN : "Maintain"
-    BULK : "Bulk"
+    CUT: "Cut"
+    MAINTAIN: "Maintain"
+    BULK: "Bulk"
 
 
-class Goal():
+class Goal(models.Model):
     goalWeight = models.FloatField()
     goalChoice = models.CharField(max_length=3, choices=[(choice.name, choice.value) for choice in GoalChoice])
