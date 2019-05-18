@@ -247,8 +247,21 @@ button {
     background-position: 30% 0%;
 }
 
+.login-img1 {
+    background: url("/static/media/cycling.jpg");
+    height: 100vh;
+    background-size: 120%;
+    background-repeat: no-repeat;
+    background-position: 30% 0%;
+}
+
 .logo {
     background-size: 10%;
+    width: 10%;
+}
+
+.logo-main {
+    background-size: 20%;
     width: 10%;
 }
 
@@ -272,12 +285,18 @@ label {
     margin-top: 5px;
 }
 
+.logintxt-wrapper {
+    margin-top: 50%;
+}
+
 #login-text {
     font-family: "Circular Std Bold";
     text-align: left;
     margin-top: 40%;
-    color: #4958B7;
+    background: #4958B7;
+    color: #fff;
     font-size: 43px;
+    padding: 10px;
 }
 
 /* The Modal (background) */
