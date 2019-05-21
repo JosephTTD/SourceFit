@@ -1,5 +1,5 @@
 body {
-    font-family: "Segment Circular Std", sans-serif;
+    font-family: "Segment Circular Std", sans-serif !important;
     background: #fff;
     overflow-x: hidden;
 }
@@ -273,7 +273,7 @@ label {
 }
 
 #login-text {
-    font-family: "Circular Std Bold";
+    font-family: "Segment Circular Std";
     text-align: left;
     margin-top: 40%;
     color: #4958B7;

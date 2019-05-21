@@ -13,6 +13,7 @@ https://docs.djangoproject.com/en/2.2/ref/settings/
 import os
 from unipath import Path
 
+
 PROJECT_DIR = Path(__file__).parent
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
@@ -42,7 +43,9 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'django_extensions',
     'widget_tweaks',
+    'django-dia',
 ]
+
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -131,3 +134,4 @@ AUTH_USER_MODEL = 'Users.CustomUser'
 AUTHENTICATION_BACKENDS = (
     'Users.auth.EmailOrUsernameModelBackend',
     'django.contrib.auth.backends.ModelBackend',)
+
