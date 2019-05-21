@@ -1,0 +1,17 @@
+{% extends "Users/base.html" %}
+{% load staticfiles %}
+{% block content %}
+
+<div class="col-lg-6">
+     <div class="login-form" style="width: 430px !important; margin-top: 20%;">
+         <img class="logo-main" src="{% static 'media/logo.png' %}" alt=""><br><br><h1 style="color: #232b58; font-weight: 600; font-size: 5.25rem">We make health tracking easier</h1><br><br>
+         <a href="{% url 'Users-login' %}"><button style="padding:12px 25px; border-radius: 30px; margin-right: 10px; background: transparent; border: 1px solid #4958B7; color: #4958B7 !important;" class="btn"><span data-feather=""></span>Sign in to your account</button></a>
+         <a  href="{% url 'Users-register'%}"><button style="padding:12px 25px; border-radius: 30px; background: #4958B7; border: 1px solid #4958B7; color: #fff !important;" class="btn">Get started for free</button></a>
+     </div>
+</div>
+
+<div class="col-lg-6">
+    <img style="margin-left: 8px; margin-top: 40px; width: 100%"src="{% static 'media/exercise-ss.png'%}" alt="">
+    <img style="margin-top: 10px; width: 100%;" src="{% static 'media/dietss.png'%}" alt="">
+</div>
+{% endblock content %}

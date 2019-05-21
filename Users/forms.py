@@ -25,7 +25,7 @@ class UserRegisterForm(UserCreationForm):
     email = forms.EmailField(widget=forms.EmailInput(attrs={'class': 'form-control', 'placeholder': 'example: you@mail.com'}))
     first_name = forms.CharField(widget=forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'example: John'}))
     last_name = forms.CharField(widget=forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'example: Smith'}))
-    password1 = forms.CharField(label = "Create Password", widget=forms.PasswordInput(attrs={'class': 'form-control', 'placeholder': 'example: Your Password should be 6 or more characters'}))
+    password1 = forms.CharField(label = "Create Password", widget=forms.PasswordInput(attrs={'class': 'form-control', 'placeholder': 'Your Password should be 6 or more characters'}))
     password2 = forms.CharField(label = "Confirm your mom", widget=forms.PasswordInput(attrs={'class': 'form-control', 'placeholder': 'example: Confirm your password'}))
     gender = forms.ChoiceField(widget=forms.Select(attrs={'class': 'choice-form', 'placeholder': 'example: healthlover101'}), choices=[(sex.name, sex.value) for sex in GenderEnum])
     heightUnits = forms.ChoiceField(widget=forms.Select(attrs={'class': 'choice-form', 'placeholder': 'example: healthlover101'}), choices=[(unit.name, unit.value) for unit in HeightMeasurementUnits])
