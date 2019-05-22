@@ -128,7 +128,7 @@ def login_view(request):
             # log in
             user = form.get_user()
             login(request, user, backend='Users.auth.EmailOrUsernameModelBackend')
-            return redirect('Users-login')
+            return redirect('Users-dashboard')
     else:
         form = UserLoginForm()
     return render(request, 'Users/login.html', {'form': form})
@@ -154,11 +154,7 @@ posts = [
         'Second_name' : 'Dada'
     }
 ]
-def dashboard(request):
-    context = {
-        'posts': posts
-    }
-    return render(request, 'Users/dashboard.html', context, {})
+
 
 def profile(request):
     context = {
@@ -172,6 +168,7 @@ def settings(request):
     }
     return render(request, 'Users/settings.html', context, {'title': 'Settings'})
 
+'''
 def diet(request):
     context = {
         'posts': posts
@@ -190,3 +187,10 @@ def goals(request):
     }
 
     return render(request, 'Users/goals.html', context, {'title': 'Goals'})
+
+def dashboard(request):
+    context = {
+        'posts': posts
+    }
+    return render(request, 'Users/dashboard.html', context, {})
+'''
