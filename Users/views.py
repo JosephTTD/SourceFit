@@ -30,10 +30,10 @@ def dashboard_view(request):
         goal_weight = goal.goalWeight
         goal_weight_units = goal.weightUnits
     else:
-        goal_complete = 0
+        goal_complete = False
         # days left till goal deadline
         days_left = 0
-        goal_weight = 0
+        goal_weight = float(0)
         goal_weight_units = WeightMeasurementUnits.KG
 
 
@@ -56,6 +56,7 @@ def display_goal_view(request):
         goal = Goal.objects.get(user__username=instance.username)
     except Goal.DoesNotExist:
         goal = None
+
     if goal is not None:
         goal_complete = goal.check_goal_is_complete(instance.weightUnits, instance.weight)
         # days left till goal deadline
@@ -63,11 +64,12 @@ def display_goal_view(request):
         goal_weight = goal.goalWeight
         goal_weight_units = goal.weightUnits
     else:
-        goal_complete = 0
+        goal_complete = False
         # days left till goal deadline
         days_left = 0
-        goal_weight = 0
+        goal_weight = float(0)
         goal_weight_units = WeightMeasurementUnits.KG
+
     context = {
         'goal_complete': goal_complete,
         'days_left': days_left,
@@ -161,21 +163,7 @@ def logout_view(request):
         logout(request)
         return redirect('/Users/login.html')
 
-posts = [
 
-    {
-        'author' : 'Joe',
-        'title' : 'posts',
-        'content' : 'succ your dad instead',
-        'date_posted' : 'June 17, 2019',
-        'current_weight' : '80',
-        'goal_weight' : '67',
-        'calories_consumed' : '1270',
-        'reach_goal' : '81',
-        'First_name' : 'Joseph',
-        'Second_name' : 'Dada'
-    }
-]
 
 def profile(request):
     context = {

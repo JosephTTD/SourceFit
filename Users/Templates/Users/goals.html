@@ -1,7 +1,7 @@
 {% extends "Users/base1.html" %}
 {% load staticfiles %}
 {% block content %}
-{% for c in context %}
+{% for goal in goal_dict %}
  <div class="jumbotron jumb5" style="margin-top: 70px;">
     <p>Success leads to motivation and motivation leads to success. Add a new goal!</p>
      <button style="" id="addAGoalBtn"><span data-feather="edit-2"></span>Add a goal</button>
@@ -14,14 +14,14 @@
     <div class="col-md-4">
         <div class="jumbotron jumb2">
         <h4>You should reach your goal in</h4>
-            <h3 class="dash_data">{{ c.goal_complete }} <span class="measure">days</span></h3>
+            <h3 class="dash_data">{{ goal.days_left}} <span class="measure">days</span></h3>
              <button><span data-feather="check-circle"></span>Complete</button>
         </div>
     </div>
     <div class="col-md-4">
         <div class="jumbotron jumb4">
         <h4>You goal weight</h4>
-            <h3 class="dash_data">{{ goal_weight }} <span class="measure">kcal</span></h3>
+            <h3 class="dash_data">{{ goal.goal_weight }} <span class="measure">kcal</span></h3>
              <button><span data-feather="check-circle"></span>Complete</button>
         </div>
     </div>
@@ -52,6 +52,5 @@
   </div>
 
 </div>
-
 {% endfor %}
 {% endblock content %}

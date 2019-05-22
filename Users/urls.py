@@ -9,9 +9,10 @@ urlpatterns = [
     path('dashboard/', views.dashboard_view, name='Users-dashboard'),
     path('diet/', views.display_diet_view, name='Users-diet'),
     path('exercise/', views.display_exercise_view, name='Users-exercise'),
+    path('goals/', views.display_goal_view, name='Users-goals'),
     path('profile/', views.profile, name='Users-profile'),
     path('inputs/', views.settings, name='Users-settings'),
-    path('goals/', views.display_goal_view, name='Users-goals'),
+
 ]
 
 
