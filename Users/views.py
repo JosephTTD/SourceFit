@@ -209,6 +209,7 @@ def goals(request):
     }
 
     return render(request, 'Users/goals.html', context, {'title': 'Goals'})
+    
 def dashboard(request):
     context = {
         'posts': posts

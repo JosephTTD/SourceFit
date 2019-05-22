@@ -10,7 +10,7 @@ urlpatterns = [
     path('diet/', views.display_diet_view, name='Users-diet'),
     path('exercise/', views.display_exercise_view, name='Users-exercise'),
     path('profile/', views.profile, name='Users-profile'),
-    path('settings/', views.settings, name='Users-settings'),
+    path('inputs/', views.settings, name='Users-settings'),
     path('goals/', views.display_goal_view, name='Users-goals'),
 ]
 
