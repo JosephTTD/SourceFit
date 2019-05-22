@@ -177,7 +177,7 @@ class CustomUser(AbstractUser):
     gender = models.CharField(default=GenderEnum.M, max_length=2, choices=[(sex.name, sex.value) for sex in GenderEnum])
     heightUnits = models.CharField(default=HeightMeasurementUnits.M, max_length=4, choices=[(unit.name, unit.value) for unit in HeightMeasurementUnits])
     weightUnits = models.CharField(default=WeightMeasurementUnits.KG, max_length=3, choices=[(unit.name, unit.value) for unit in WeightMeasurementUnits])
-    exerciseIntensity = models.CharField(default=ExerciseIntensity.MODERATE,max_length=4,
+    exerciseIntensity = models.CharField(default=ExerciseIntensity.MODERATE,max_length=50,
                                          choices=[(intensity.name, intensity.value) for intensity in ExerciseIntensity])
     height = models.FloatField(null=True)
     weight = models.FloatField(null=True)
@@ -209,8 +209,8 @@ class CustomUser(AbstractUser):
         return round(bmr, 2)
 
     def calculate_bmr(self):
-        height = Conversions.from_height_units_to_m(self.height) * float(100)
-        weight = Conversions.from_weight_units_to_kg(self.weight)
+        height = Conversions.from_height_units_to_m(self.heightUnits, self.height) * float(100)
+        weight = Conversions.from_weight_units_to_kg(self.weightUnits, self.weight)
         return (float(10) * weight) + ((float(6.25) * height) - float(5)) * self.calculate_age()
 
     def calculate_healthiness(self):

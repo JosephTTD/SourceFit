@@ -1,8 +1,7 @@
 {% extends "Users/base1.html" %}
 {% load staticfiles %}
 {% block content %}
-{% for post in posts %}
-
+{% for c in context %}
  <div class="jumbotron jumb5" style="margin-top: 70px;">
     <p>Success leads to motivation and motivation leads to success. Add a new goal!</p>
      <button style="" id="addAGoalBtn"><span data-feather="edit-2"></span>Add a goal</button>
@@ -15,21 +14,21 @@
     <div class="col-md-4">
         <div class="jumbotron jumb2">
         <h4>You should reach your goal in</h4>
-            <h3 class="dash_data">{{ post.reach_goal }} <span class="measure">days</span></h3>
+            <h3 class="dash_data">{{ c.goal_complete }} <span class="measure">days</span></h3>
              <button><span data-feather="check-circle"></span>Complete</button>
         </div>
     </div>
     <div class="col-md-4">
         <div class="jumbotron jumb4">
-        <h4>You goal Calories</h4>
-            <h3 class="dash_data">{{ post.calories_consumed }} <span class="measure">kcal</span></h3>
+        <h4>You goal weight</h4>
+            <h3 class="dash_data">{{ goal_weight }} <span class="measure">kcal</span></h3>
              <button><span data-feather="check-circle"></span>Complete</button>
         </div>
     </div>
     <div class="col-md-4">
         <div class="jumbotron jumb3">
         <h4>Your activity goals </h4>
-            <h3 class="dash_data">Run 10k in an hour</h3>
+            <h3 class="dash_data"></h3>
              <button><span data-feather="check-circle"></span>Complete</button>
         </div>
     </div>
