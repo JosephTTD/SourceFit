@@ -1,12 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="629b401b-bed7-40f8-8f60-3f410df9192c" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/Users/Templates/Users/base1.html" beforeDir="false" afterPath="$PROJECT_DIR$/Users/Templates/Users/base1.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Users/migrations/0001_initial.py" beforeDir="false" afterPath="$PROJECT_DIR$/Users/migrations/0001_initial.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Users/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/Users/urls.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Users/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/Users/views.py" afterDir="false" />
-    </list>
+    <list default="true" id="629b401b-bed7-40f8-8f60-3f410df9192c" name="Default Changelist" comment="" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -45,8 +40,8 @@
           <file pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/Users/views.py">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="1113">
-                  <caret line="177" column="1" selection-start-line="177" selection-start-column="1" selection-end-line="177" selection-end-column="1" />
+                <state relative-caret-position="586">
+                  <caret line="211" column="4" selection-start-line="211" selection-start-column="4" selection-end-line="211" selection-end-column="4" />
                   <folding>
                     <element signature="e#0#68#0" expanded="true" />
                   </folding>
@@ -347,18 +342,17 @@
       <workItem from="1558101834428" duration="8841000" />
       <workItem from="1558115978312" duration="9681000" />
       <workItem from="1558192317218" duration="13961000" />
-      <workItem from="1558435976516" duration="67816000" />
+      <workItem from="1558435976516" duration="68007000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="194962000" />
+    <option name="totallyTimeSpent" value="195153000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-7" y="-7" width="1295" height="695" extended-state="6" />
-    <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.83253586" visible="true" weight="0.19482619" />
+      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.83253586" visible="true" weight="0.19482619" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" sideWeight="0.16746412" side_tool="true" weight="0.11875945" />
       <window_info anchor="bottom" id="Message" order="0" />
@@ -372,7 +366,7 @@
       <window_info anchor="bottom" id="Version Control" order="8" weight="0.3290461" />
       <window_info anchor="bottom" id="Database Changes" order="9" weight="0.32850242" />
       <window_info anchor="bottom" id="Event Log" order="10" sideWeight="0.5004042" side_tool="true" weight="0.5035461" />
-      <window_info anchor="bottom" id="Terminal" order="11" sideWeight="0.4995958" visible="true" weight="0.17730497" />
+      <window_info active="true" anchor="bottom" id="Terminal" order="11" sideWeight="0.4995958" visible="true" weight="0.65957445" />
       <window_info anchor="bottom" id="Python Console" order="12" weight="0.32850242" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
@@ -663,8 +657,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/Users/views.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1113">
-          <caret line="177" column="1" selection-start-line="177" selection-start-column="1" selection-end-line="177" selection-end-column="1" />
+        <state relative-caret-position="586">
+          <caret line="211" column="4" selection-start-line="211" selection-start-column="4" selection-end-line="211" selection-end-column="4" />
           <folding>
             <element signature="e#0#68#0" expanded="true" />
           </folding>
