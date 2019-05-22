@@ -35,10 +35,10 @@ class GoalCreationForm(forms.Form):
         fields = ('goalWeight', 'weightUnits', 'goalDate', 'typeOfGoal')
 
 
-class ActivityCreationForm(forms.Form):
+class ActivityCreationForm(forms.ModelForm):
     activityDistance = forms.IntegerField(
         widget=forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'example: Enter your goal distance in m'}), )
-    activityDuration = forms.TimeField()
+    activityDuration = forms.IntegerField(widget=forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'example: Enter duration in seconds'}),)
     activityName = forms.CharField(widget=forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Enter activity name'}), )
     typeOfActivity = forms.ChoiceField(widget=forms.Select(attrs={'class': 'choice-form', 'placeholder': ''}),
                                        choices=[(type.name, type.value) for type in ActivityType])
@@ -47,6 +47,7 @@ class ActivityCreationForm(forms.Form):
         name = self.cleaned_data['activityName']
         distance = self.cleaned_data['activityDistance']
         duration = self.cleaned_data['activityDuration']
+
 
         if not (distance or duration):
             raise forms.ValidationError("You must at least one of distance or duration")
@@ -98,7 +99,7 @@ class UserRegisterForm(UserCreationForm):
     gender = forms.ChoiceField(widget=forms.Select(attrs={'class': 'choice-form', 'placeholder': ''}), choices=[(sex.name, sex.value) for sex in GenderEnum])
     heightUnits = forms.ChoiceField(widget=forms.Select(attrs={'class': 'choice-form', 'placeholder': ''}), choices=[(unit.name, unit.value) for unit in HeightMeasurementUnits])
     weightUnits = forms.ChoiceField(widget=forms.Select(attrs={'class': 'choice-form', 'placeholder': ''}),choices=[(unit.name, unit.value) for unit in WeightMeasurementUnits])
-    height = forms.IntegerField(  widget=forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'example: Enter your height'}),)
+    height = forms.IntegerField(widget=forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'example: Enter your height'}),)
     weight = forms.IntegerField(widget=forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'example: Enter your weight'}), )
     exerciseIntensity = forms.ChoiceField(widget=forms.Select(attrs={'class': 'choice-form', 'placeholder': ''}), choices=[(intensity.name, intensity.value) for intensity in ExerciseIntensity])
 

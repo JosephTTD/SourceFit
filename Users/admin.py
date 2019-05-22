@@ -1,8 +1,8 @@
 from django import forms
-from .models import CustomUser
 from django.contrib import admin
 from django.contrib.auth import get_user_model
 from django.contrib.auth.admin import UserAdmin
+from .models import CustomUser, Goal, DietData, Activity
 from django.contrib.auth.forms import UserChangeForm, UserCreationForm
 
 
@@ -34,3 +34,6 @@ class CustomUserAdmin(UserAdmin):
 
 
 admin.site.register(CustomUser, CustomUserAdmin)
+admin.site.register(Goal)
+admin.site.register(DietData)
+admin.site.register(Activity)

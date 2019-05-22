@@ -73,7 +73,7 @@ class GoalType(Enum):
 
 
 class DietData(models.Model):
-    user = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE, related_name='user_diet')
+    user = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE, related_name='user_diet', null=True, blank=True)
     foodOrDrinkName = models.CharField(null=True, max_length=100)
     calorificCount = models.IntegerField(null=True)
     typeOfMeal = models.CharField(default=MealType.LUNCH, max_length=3, choices=[(type.name, type.value) for type in MealType])
@@ -81,24 +81,24 @@ class DietData(models.Model):
 
 
 class Activity(models.Model):
-    user = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE, related_name='user_activity')
+    user = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE, related_name='user_activity', null=True, blank=True)
     activityDistance = models.IntegerField(null=True)
-    activityDuration = models.TimeField(null=True)
+    activityDuration = models.IntegerField(null=True)
     activityName = models.CharField(null=True, max_length=100)
     typeOfActivity = models.CharField(default=ActivityType.RUNNING, max_length=9,
                                       choices=[(type.name, type.value) for type in ActivityType])
-    completion = models.BooleanField()
+    completion = models.BooleanField(default=False)
 
 
 class Goal(models.Model):
-    user = models.OneToOneField(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
+    user = models.OneToOneField(settings.AUTH_USER_MODEL, on_delete=models.CASCADE, null=True, blank=True)
     goalWeight = models.FloatField(null=True)
     weightUnits = models.CharField(default=WeightMeasurementUnits.KG, max_length=3,
                                    choices=[(unit.name, unit.value) for unit in WeightMeasurementUnits])
     goalDate = models.DateField(null=True)
     typeOfGoal = models.CharField(default=GoalType.MAINTAIN, max_length=3, choices=[(unit.name, unit.value) for unit in GoalType])
-    goalCompletion = models.BooleanField()
-    goalExceeded = models.BooleanField()
+    goalCompletion = models.BooleanField(default=False)
+    goalExceeded = models.BooleanField(default=False)
 
     def check_goal_is_expired(self):
         if date.today() >= self.goalDate:

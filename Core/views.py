@@ -31,7 +31,7 @@ def settings(request):
     context = {
         'posts' : posts
     }
-    return render(request, 'Core/settings.html', context, {'title': 'Settings'})
+    return render(request, 'Core/goal_entry.html', context, {'title': 'Settings'})
 
 def diet(request):
     context = {
