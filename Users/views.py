@@ -3,7 +3,7 @@ from django.contrib import messages
 from django.shortcuts import render, redirect
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth import authenticate, login, logout, get_user_model
-from .models import Goal, ExerciseIntensity, DietData, CustomUser, Activity
+from .models import Goal, ExerciseIntensity, DietData, CustomUser, Activity, WeightMeasurementUnits
 
 User = get_user_model()
 
@@ -19,12 +19,23 @@ def dashboard_view(request):
     current_weight = instance.weight
     user_weight_units = instance.weightUnits
     #boolean whether goal is complete or not
-    goal = Goal.objects.get(goal__username=instance.username)
-    goal_complete = goal.check_goal_is_complete(instance.weightUnits, instance.weight)
-    #days left till goal deadline
-    days_left = goal.return_days_to_goal_deadline()
-    goal_weight = goal.goalWeight
-    goal_weight_units = goal.weightUnits
+    try:
+        goal = Goal.objects.get(user__username=instance.username)
+    except Goal.DoesNotExist:
+        goal = None
+    if goal is not None:
+        goal_complete = goal.check_goal_is_complete(instance.weightUnits, instance.weight)
+        # days left till goal deadline
+        days_left = goal.return_days_to_goal_deadline()
+        goal_weight = goal.goalWeight
+        goal_weight_units = goal.weightUnits
+    else:
+        goal_complete = 0
+        # days left till goal deadline
+        days_left = 0
+        goal_weight = 0
+        goal_weight_units = WeightMeasurementUnits.KG
+
 
     context = {
         'maintenance_calories': maintenance_calories,
@@ -40,25 +51,36 @@ def dashboard_view(request):
 
 @login_required(login_url='Users-login')
 def display_goal_view(request):
-    instance = User.objects.get(goal__username=request.user.username)
-    goal = Goal.objects.get(goal__username=instance.username)
-    goal_complete = goal.check_goal_is_complete(instance.weightUnits, instance.weight)
-    days_left = goal.return_days_to_goal_deadline()
-    goal_weight = goal.goalWeight
-    goal_weight_units = goal.weightUnits
+    instance = User.objects.get(username=request.user.username)
+    try:
+        goal = Goal.objects.get(user__username=instance.username)
+    except Goal.DoesNotExist:
+        goal = None
+    if goal is not None:
+        goal_complete = goal.check_goal_is_complete(instance.weightUnits, instance.weight)
+        # days left till goal deadline
+        days_left = goal.return_days_to_goal_deadline()
+        goal_weight = goal.goalWeight
+        goal_weight_units = goal.weightUnits
+    else:
+        goal_complete = 0
+        # days left till goal deadline
+        days_left = 0
+        goal_weight = 0
+        goal_weight_units = WeightMeasurementUnits.KG
     context = {
         'goal_complete': goal_complete,
         'days_left': days_left,
         'goal_weight': goal_weight,
         'goal_weight_units': goal_weight_units,
     }
-    return render(request, 'Users/dashboard.html', context=context)
+    return render(request, 'Users/dashboard.html', context)
 
 
 @login_required(login_url='Users-login')
 def display_exercise_view(request):
-    instance = User.objects.get(activity__username=request.user.username)
-    queryset = Activity.objects.filter(activity__username=instance.username)
+    instance = User.objects.get(username=request.user.username)
+    queryset = Activity.objects.filter(user__username=instance.username)
     context = {
         "Exercise_object_list": queryset
     }
@@ -67,8 +89,8 @@ def display_exercise_view(request):
 
 @login_required(login_url='Users-login')
 def display_diet_view(request):
-    instance = User.objects.get(diet__username=request.user.username)
-    queryset = DietData.objects.filter(diet__username=instance.username)
+    instance = User.objects.get(username=request.user.username)
+    queryset = DietData.objects.filter(user__username=instance.username)
     context = {
         "Diet_object_list": queryset
     }
@@ -155,7 +177,6 @@ posts = [
     }
 ]
 
-
 def profile(request):
     context = {
         'posts': posts
@@ -175,6 +196,7 @@ def diet(request):
     }
     return render(request, 'Users/diet.html', context, {'title': 'Diet'})
 
+
 def exercise(request):
     context = {
         'posts': posts
@@ -187,7 +209,7 @@ def goals(request):
     }
 
     return render(request, 'Users/goals.html', context, {'title': 'Goals'})
-
+    
 def dashboard(request):
     context = {
         'posts': posts
