@@ -29,7 +29,8 @@ class CustomUserAdmin(UserAdmin):
     form = MyUserChangeForm
     add_form = MyUserCreationForm
     fieldsets = UserAdmin.fieldsets + ((None, {'fields': ('dob', 'gender',
-                                                          'heightUnits', 'weightUnits', 'height', 'weight',)}),)
+                                                          'heightUnits', 'weightUnits', 'height', 'weight',
+                                                          'exerciseIntensity')}),)
 
 
 admin.site.register(CustomUser, CustomUserAdmin)

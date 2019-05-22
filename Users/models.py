@@ -72,46 +72,31 @@ class GoalType(Enum):
     GAIN = "Gain Weight"
 
 
-class UserRecordManager(models.Manager):
-    def for_user(self, user):
-        return self.get_queryset().filter(creator=user)
-
-
-class UserRecord(models.Model):
-    objects = UserRecordManager()
-
-
-class Diet(models.Model):
-    user = models.OneToOneField(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
-
-
 class DietData(models.Model):
-    DietLog = models.ForeignKey('Diet', related_name='Log_of_data', on_delete=models.DO_NOTHING)
-    FoodOrDrinkName = models.CharField(null=True,max_length=100)
-    CalorificCount = models.IntegerField(null=True)
-    TypeOfMeal = models.CharField(null=True,max_length=3, choices=[(type.name, type.value) for type in MealType])
-    dateAdded = models.DateTimeField(null=True, default=datetime.now, blank=True)
+    user = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE, related_name='user_diet')
+    foodOrDrinkName = models.CharField(null=True, max_length=100)
+    calorificCount = models.IntegerField(null=True)
+    typeOfMeal = models.CharField(default=MealType.LUNCH, max_length=3, choices=[(type.name, type.value) for type in MealType])
+    dateAdded = models.DateTimeField(default=datetime.now, blank=True)
 
 
 class Activity(models.Model):
-    ExerciseLog = models.ForeignKey('ExerciseTemplate', related_name='Exercise_Log_Of_Activities', on_delete=models.DO_NOTHING)
-    ActivityDistance = models.IntegerField(null=True)
-    ActivityDuration = models.TimeField(null=True)
-    ActivityName = models.CharField(null=True,max_length=100)
-    TypeOfActivity = models.CharField(null=True,max_length=9, choices=[(type.name, type.value) for type in ActivityType])
-    Completion = models.BooleanField()
-
-
-class ExerciseTemplate(models.Model):
-    user = models.OneToOneField(settings.AUTH_USER_MODEL, on_delete=models.CASCADE, null=True)
+    user = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE, related_name='user_activity')
+    activityDistance = models.IntegerField(null=True)
+    activityDuration = models.TimeField(null=True)
+    activityName = models.CharField(null=True, max_length=100)
+    typeOfActivity = models.CharField(default=ActivityType.RUNNING, max_length=9,
+                                      choices=[(type.name, type.value) for type in ActivityType])
+    completion = models.BooleanField()
 
 
 class Goal(models.Model):
     user = models.OneToOneField(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
     goalWeight = models.FloatField(null=True)
-    weightUnits = models.CharField(null=True, max_length=3, choices=[(unit.name, unit.value) for unit in WeightMeasurementUnits])
+    weightUnits = models.CharField(default=WeightMeasurementUnits.KG, max_length=3,
+                                   choices=[(unit.name, unit.value) for unit in WeightMeasurementUnits])
     goalDate = models.DateField(null=True)
-    typeOfGoal = models.CharField(null=True, max_length=3, choices=[(unit.name, unit.value) for unit in GoalType])
+    typeOfGoal = models.CharField(default=GoalType.MAINTAIN, max_length=3, choices=[(unit.name, unit.value) for unit in GoalType])
     goalCompletion = models.BooleanField()
     goalExceeded = models.BooleanField()
 
@@ -127,7 +112,8 @@ class Goal(models.Model):
         if self.typeOfGoal == GoalType.LOSE and userWeight < goalWeight:
             self.goalCompletion = True
             return True
-        elif self.typeOfGoal == GoalType.MAINTAIN and ((goalWeight-float(2)) <= userWeight <= (goalWeight-float(2))):
+        elif self.typeOfGoal == GoalType.MAINTAIN and (
+                (goalWeight - float(2)) <= userWeight <= (goalWeight - float(2))):
             self.goalCompletion = True
             return True
         elif self.typeOfGoal == GoalType.GAIN and userWeight > goalWeight:
@@ -135,8 +121,8 @@ class Goal(models.Model):
             return True
         return False
 
-    def return_days_to_goal(self):
-        if self.goalCompletion or self.goalExceeded:
+    def return_days_to_goal_deadline(self):
+        if self.goalCompletion or self.goalExceeded or self.goalDate is None:
             return 0
         return (self.goalDate - date.today()).days
 
@@ -186,13 +172,13 @@ class Conversions:
 
 # Custom User model class
 class CustomUser(AbstractUser):
-
     email = models.EmailField(_('email address'), unique=True)
     dob = models.DateField(null=True)
-    gender = models.CharField(max_length=2, choices=[(sex.name, sex.value) for sex in GenderEnum])
-    heightUnits = models.CharField(max_length=4, choices=[(unit.name, unit.value) for unit in HeightMeasurementUnits])
-    weightUnits = models.CharField(max_length=3, choices=[(unit.name, unit.value) for unit in WeightMeasurementUnits])
-    exerciseIntensity = models.CharField(max_length=4, choices=[(intensity.name, intensity.value) for intensity in ExerciseIntensity])
+    gender = models.CharField(default=GenderEnum.M, max_length=2, choices=[(sex.name, sex.value) for sex in GenderEnum])
+    heightUnits = models.CharField(default=HeightMeasurementUnits.M, max_length=4, choices=[(unit.name, unit.value) for unit in HeightMeasurementUnits])
+    weightUnits = models.CharField(default=WeightMeasurementUnits.KG, max_length=3, choices=[(unit.name, unit.value) for unit in WeightMeasurementUnits])
+    exerciseIntensity = models.CharField(default=ExerciseIntensity.MODERATE,max_length=4,
+                                         choices=[(intensity.name, intensity.value) for intensity in ExerciseIntensity])
     height = models.FloatField(null=True)
     weight = models.FloatField(null=True)
 
@@ -223,7 +209,9 @@ class CustomUser(AbstractUser):
         return round(bmr, 2)
 
     def calculate_bmr(self):
-        return (float(10) * self.weight) + ((float(6.25) * self.height) - float(5)) * self.calculate_age()
+        height = Conversions.from_height_units_to_m(self.height) * float(100)
+        weight = Conversions.from_weight_units_to_kg(self.weight)
+        return (float(10) * weight) + ((float(6.25) * height) - float(5)) * self.calculate_age()
 
     def calculate_healthiness(self):
         bmi = self.calculate_bmi()
