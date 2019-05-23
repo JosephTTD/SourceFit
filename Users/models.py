@@ -203,6 +203,7 @@ class CustomUser(AbstractUser):
         return round(bmr)
 
     def calculate_bmr(self):
+        height = Conversions.from_height_units_to_m(self.heightUnits, self.height)
         age = self.calculate_age()
         if self.gender == GenderEnum.M.name:
             age *= 5.677
