@@ -118,8 +118,15 @@ def display_goal_view(request):
 def display_exercise_view(request):
     instance = User.objects.get(username=request.user.username)
     queryset = Activity.objects.filter(user__username=instance.username).values("activityDuration", "activityDistance",
-                                                                                "activityName", "typeOfActivity",                                                                            "completion")
-    print(queryset)
+                                                                                "activityName", "typeOfActivity",
+                                                                                "completion")
+    for i in queryset:
+        print(i['completion'])
+        #if request.POST.get(i.get('activityDuration'), '') == 'on':
+
+
+
+
     context = {
         'queryset':queryset
     }
