@@ -13,19 +13,37 @@
 </div>
 <div class="row" style="margin-top: 40px">
     {% for q in queryset %}
+    {% if q.typeOfActivity == 'SWIMMING'%}
     <div class="col-md-6">
-        {% if q %}
+    <div class="jumbotron jumb1" >{{q.typeOfActivity}}</div>
+    </div>
+    {% else %}
+    <div class="col-md-6">
+    <div class="jumbotron jumb3" >{{q.typeOfActivity}}</div>
+    {% endif %}
+    </div>
+  <!--  <div class="col-md-6">
+        {% if q.typeofActivity == 'Running' %}
         <div class="jumbotron jumb4">
-         {% else %}
-        </div class="jumbotron jumb3">
-        {% endif %}
-        <h4>{{q.typeOfActivity}}</h4>
+            {% else %}
+            <div class="jumbotron jumb1">
+        <h4 >{{q.typeOfActivity}}</h4>
             <h3 class="dash_data">
                     {{q.activityName }}
+                <div class="table">
+                <h5 class="table-cell">{{q.activityDuration}} s<span data-feather="watch"></span></h5>
+                <h5 class="table-cell">{{q.activityDistance}} m<span data-feather="corner-right-up"></span></h5>
+                    {% if q.completion is True %}
+                    <span data-feather="check"></span>
+                    {% else %}
+                    <span data-feather="x-circle"></span>
+                    {% endif %}
+                </div>
             </h3>
             <button><span data-feather="check-circle"></span>Complete</button>
         </div>
     </div>
+        {% endif %}-->
     {% endfor %}
    <!-- <div class="col-md-6">
         <div class="jumbotron jumb3">
