@@ -1,7 +1,7 @@
 from django.test import SimpleTestCase
 from django.urls import reverse, resolve
 from Users.views import home_view, login_view, register_view, dashboard_view, display_diet_view, display_exercise_view, \
-    display_goal_view, profile, settings
+    display_goal_view, profile
 
 
 class TestUrls(SimpleTestCase):
@@ -46,8 +46,19 @@ class TestUrls(SimpleTestCase):
         print(resolve(url))
         self.assertEquals(resolve(url).func, profile)
 
-    def test_settings_url_is_resolved(self):
-        url = reverse('Users-settings')
+    def test_profile_url_is_resolved(self):
+        url = reverse('Users-profile')
         print(resolve(url))
-        self.assertEquals(resolve(url).func, settings)
+        self.assertEquals(resolve(url).func, profile)
+
+    def test_profile_url_is_resolved(self):
+        url = reverse('Users-profile')
+        print(resolve(url))
+        self.assertEquals(resolve(url).func, profile)
+
+    def test_profile_url_is_resolved(self):
+        url = reverse('Users-profile')
+        print(resolve(url))
+        self.assertEquals(resolve(url).func, profile)
+
 
