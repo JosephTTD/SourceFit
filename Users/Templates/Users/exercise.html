@@ -1,7 +1,7 @@
 {% extends "Users/base1.html" %}
 {% load staticfiles %}
 {% block content %}
-{% for post in posts %}
+
 
  <div class="jumbotron jumb5" style="margin-top: 70px;">
     <p>Completing activities gets you closer to reaching your goal. Keep going!</p>
@@ -12,14 +12,22 @@
   Clicking Complete marks the activity as complete and removes it
 </div>
 <div class="row" style="margin-top: 40px">
+    {% for q in queryset %}
     <div class="col-md-6">
+        {% if q %}
         <div class="jumbotron jumb4">
-        <h4>Activity #1</h4>
-            <h3 class="dash_data">Hike for 2 miles</h3>
+         {% else %}
+        </div class="jumbotron jumb3">
+        {% endif %}
+        <h4>{{q.typeOfActivity}}</h4>
+            <h3 class="dash_data">
+                    {{q.activityName }}
+            </h3>
             <button><span data-feather="check-circle"></span>Complete</button>
         </div>
     </div>
-    <div class="col-md-6">
+    {% endfor %}
+   <!-- <div class="col-md-6">
         <div class="jumbotron jumb3">
         <h4>Activity #2</h4>
             <h3 class="dash_data">
@@ -34,8 +42,8 @@
             <h3 class="dash_data"></h3>
             <button><span data-feather="check-circle"></span>Complete</button>
         </div>
-    </div>
+    </div> -->
 </div>
 
-{% endfor %}
+
 {% endblock content %}

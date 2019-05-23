@@ -18,6 +18,9 @@ def home_view(request):
 def dashboard_view(request):
     instance = User.objects.get(username=request.user.username)
     print(instance.weight)
+    display_name = request.user.username
+    f_name = request.user.first_name
+    full_name = request.user.get_full_name
     maintenance_calories = instance.calculate_maintenance_calories()
     current_weight = instance.weight
     user_weight_units = instance.weightUnits
@@ -42,6 +45,9 @@ def dashboard_view(request):
     posts = [
 
         {
+            'f_name': f_name,
+            'full_name' : full_name,
+            'display-name' : display_name,
             'goal_complete': goal_complete,
             'days_left': days_left,
             'goal_weight': goal_weight,
@@ -97,9 +103,10 @@ def display_goal_view(request):
 @login_required(login_url='Users-login')
 def display_exercise_view(request):
     instance = User.objects.get(username=request.user.username)
-    queryset = Activity.objects.filter(user__username=instance.username)
+    queryset = Activity.objects.filter(user__username=instance.username).values("activityDuration", "activityDistance", "activityName", "typeOfActivity","completion")
+    print(queryset)
     context = {
-        'posts' : posts
+        'queryset':queryset
     }
     return render(request, "Users/exercise.html", context)
 
@@ -109,28 +116,35 @@ def display_diet_view(request):
     instance = User.objects.get(username=request.user.username)
     date_from = datetime.datetime.now() - datetime.timedelta(days=1)
     queryset = DietData.objects.filter(user__username=instance.username, dateAdded__gte=date_from)
+    queryAllDailyCalories = DietData.objects.filter(user__username=instance.username,
+                                                    dateAdded__gte=date_from).values_list('calorificCount', flat=True)
+    dailyCalories = 0
+    for i in queryAllDailyCalories:
+        dailyCalories += i
     context = {
-        "posts": queryset
+        'posts': queryset,
+        'dailyCalories': dailyCalories
     }
+    print(queryset)
 
     testdata = {
         'posts':posts
     }
 
-    return render(request, "Users/diet.html", testdata, context)
+    return render(request, "Users/diet.html", context)
 
 
 @login_required(login_url='Users-login')
 def create_goal_view(request):
     instance = User.objects.get(username=request.user.username)
-    if request.method == 'POST':
+    if request.method == 'POST' and Goal:
         form = GoalCreationForm(request.POST)
         if form.is_valid():
             post = form.save(commit=False)
             post.user = instance
             post.save()
 
-            redirect('Users-goals')
+            redirect('Users/goals.html')
     else:
         form = GoalCreationForm()
     return render(request, 'Users/goal_entry.html', {'form': form})
@@ -173,7 +187,7 @@ def register_view(request):
             form.save()
             username = form.cleaned_data.get('username')
             messages.success(request, f'Account created for {username}.')
-            return redirect('/Users/login.html')
+            return redirect('Users-login')
     else:
         form = UserRegisterForm()
     return render(request, 'Users/register.html', {'form': form})
@@ -215,6 +229,46 @@ posts = [
 ]
 
 def profile(request):
+    instance = User.objects.get(username=request.user.username)
+    display_name = request.user.username
+    print(instance.weight)
+    full_name = request.user.get_full_name
+    maintenance_calories = instance.calculate_maintenance_calories()
+    current_weight = instance.weight
+    user_weight_units = instance.weightUnits
+    #boolean whether goal is complete or not
+    try:
+        goal = Goal.objects.get(user__username=instance.username)
+    except Goal.DoesNotExist:
+        goal = None
+    if goal is not None:
+        goal_complete = goal.check_goal_is_complete(instance.weightUnits, instance.weight)
+        # days left till goal deadline
+        days_left = goal.return_days_to_goal_deadline()
+        goal_weight = goal.goalWeight
+        goal_weight_units = goal.weightUnits
+    else:
+        goal_complete = False
+        # days left till goal deadline
+        days_left = 0
+        goal_weight = float(0)
+        goal_weight_units = WeightMeasurementUnits.KG
+
+    posts = [
+
+        {
+            'full_name' : full_name,
+            'display_name' : display_name,
+            'goal_complete': goal_complete,
+            'days_left': days_left,
+            'goal_weight': goal_weight,
+            'goal_weight_units': goal_weight_units,
+            'maintenance_calories': maintenance_calories,
+            'current_weight': current_weight,
+            'user_weight_units': user_weight_units
+        }
+    ]
+
     context = {
         'posts': posts
     }
