@@ -6,7 +6,7 @@ import datetime
 from django.shortcuts import render, redirect, render_to_response
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth import authenticate, login, logout, get_user_model
-from .models import Goal, ExerciseIntensity, DietData, CustomUser, Activity, WeightMeasurementUnits
+from .models import Goal, ExerciseIntensity, DietData, CustomUser, Activity, WeightMeasurementUnits, HeightMeasurementUnits
 
 
 User = get_user_model()
@@ -19,7 +19,6 @@ def home_view(request):
 @login_required(login_url='Users-login')
 def dashboard_view(request):
     instance = User.objects.get(username=request.user.username)
-    print(instance.weight)
     display_name = request.user.username
     f_name = request.user.first_name
     full_name = request.user.get_full_name
