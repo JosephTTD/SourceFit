@@ -5,7 +5,7 @@
 
  <div class="jumbotron jumb5" style="margin-top: 70px;">
     <p>Completing activities gets you closer to reaching your goal. Keep going!</p>
-     <button id="addAnActivityBtn"><span data-feather="edit-2"></span>Add an activity</button>
+     <a href="{% url 'Users-add_exercise' %}"><button id="addAnActivityBtn"><span data-feather="edit-2"></span>Add an activity</button></a>
   </div>
 
 <div class="alert alert-info">
@@ -22,32 +22,20 @@
     <div class="col-md-6">
         <div class="jumbotron jumb3">
         <h4>Activity #2</h4>
-            <h3 class="dash_data">Set new deadlift PR</h3>
+            <h3 class="dash_data">
+
+            </h3>
             <button><span data-feather="check-circle"></span>Complete</button>
         </div>
     </div>
     <div class="col-md-6">
         <div class="jumbotron jumb1">
         <h4>Activity #3</h4>
-            <h3 class="dash_data">Run 10k in an hour</h3>
+            <h3 class="dash_data"></h3>
             <button><span data-feather="check-circle"></span>Complete</button>
         </div>
     </div>
 </div>
 
-<!-- The Modal -->
-<div id="addAnActivity" class="modal1">
-
-  <!-- Modal content -->
-  <div class="modal-content">
-    <span class="close">&times;</span>
-      <form class="formform">
-          <label style="font-size:18px;">Create an Activity:</label>
-          <input class="modal-form" type="text" placeholder="example: Complete 10 pushups"/>
-          <input type="submit" class="btn modal-btn" />
-      </form>
-  </div>
-
-</div>
 {% endfor %}
 {% endblock content %}

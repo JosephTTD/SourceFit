@@ -211,7 +211,7 @@ class CustomUser(AbstractUser):
     def calculate_bmr(self):
         height = Conversions.from_height_units_to_m(self.heightUnits, self.height) * float(100)
         weight = Conversions.from_weight_units_to_kg(self.weightUnits, self.weight)
-        return (float(10) * weight) + ((float(6.25) * height) - float(5)) * self.calculate_age()
+        return (float(10) * weight) + ((float(6.25) * height) - float(5)) * float(self.calculate_age())
 
     def calculate_healthiness(self):
         bmi = self.calculate_bmi()

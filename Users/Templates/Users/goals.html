@@ -4,7 +4,7 @@
 {% for post in posts %}
  <div class="jumbotron jumb5" style="margin-top: 70px;">
     <p>Success leads to motivation and motivation leads to success. Add a new goal!</p>
-     <button style="" id="addAGoalBtn"><span data-feather="edit-2"></span>Add a goal</button>
+     <a href="{% url 'Users-goal_entry' %}"><button style="" id="addAGoalBtn"><span data-feather="edit-2"></span>Add a goal</button></a>
   </div>
 
 <div class="alert alert-info">
@@ -34,24 +34,6 @@
     </div>
 </div>
 
-<!-- Trigger/Open The Modal -->
-
-<!-- The Modal -->
-<div id="addAGoal" class="modal">
-
-  <!-- Modal content -->
-  <div class="modal-content">
-    <span class="close">&times;</span>
-      <form class="formform">
-          <label style="font-size:18px;">What's your goal?:</label>
-          <input class="modal-form" type="text" placeholder="example: Complete 10 pushups"/>
-          <label style="font-size:18px;">When would you like to complete it?:</label>
-          <input class="modal-form" type="date" placeholder="When do you expect to reach this goal?"/>
-          <input type="submit" class="btn modal-btn" />
-      </form>
-  </div>
-
-</div>
 
 {% endfor %}
 {% endblock content %}
