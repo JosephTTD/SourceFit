@@ -76,7 +76,7 @@ class DietData(models.Model):
     user = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE, related_name='user_diet', null=True, blank=True)
     foodOrDrinkName = models.CharField(null=True, max_length=100)
     calorificCount = models.IntegerField(null=True)
-    typeOfMeal = models.CharField(default=MealType.LUNCH, max_length=3, choices=[(type.name, type.value) for type in MealType])
+    typeOfMeal = models.CharField(default=MealType.LUNCH, max_length=50, choices=[(type.name, type.value) for type in MealType])
     dateAdded = models.DateTimeField(default=datetime.now, blank=True)
 
 
@@ -85,7 +85,7 @@ class Activity(models.Model):
     activityDistance = models.IntegerField(null=True)
     activityDuration = models.IntegerField(null=True)
     activityName = models.CharField(null=True, max_length=100)
-    typeOfActivity = models.CharField(default=ActivityType.RUNNING, max_length=9,
+    typeOfActivity = models.CharField(default=ActivityType.RUNNING, max_length=50,
                                       choices=[(type.name, type.value) for type in ActivityType])
     completion = models.BooleanField(default=False)
 
@@ -93,10 +93,10 @@ class Activity(models.Model):
 class Goal(models.Model):
     user = models.OneToOneField(settings.AUTH_USER_MODEL, on_delete=models.CASCADE, null=True, blank=True)
     goalWeight = models.FloatField(null=True)
-    weightUnits = models.CharField(default=WeightMeasurementUnits.KG, max_length=3,
+    weightUnits = models.CharField(default=WeightMeasurementUnits.KG, max_length=50,
                                    choices=[(unit.name, unit.value) for unit in WeightMeasurementUnits])
     goalDate = models.DateField(null=True)
-    typeOfGoal = models.CharField(default=GoalType.MAINTAIN, max_length=3, choices=[(unit.name, unit.value) for unit in GoalType])
+    typeOfGoal = models.CharField(default=GoalType.MAINTAIN, max_length=50, choices=[(unit.name, unit.value) for unit in GoalType])
     goalCompletion = models.BooleanField(default=False)
     goalExceeded = models.BooleanField(default=False)
 
@@ -175,8 +175,8 @@ class CustomUser(AbstractUser):
     email = models.EmailField(_('email address'), unique=True)
     dob = models.DateField(null=True)
     gender = models.CharField(default=GenderEnum.M, max_length=2, choices=[(sex.name, sex.value) for sex in GenderEnum])
-    heightUnits = models.CharField(default=HeightMeasurementUnits.M, max_length=4, choices=[(unit.name, unit.value) for unit in HeightMeasurementUnits])
-    weightUnits = models.CharField(default=WeightMeasurementUnits.KG, max_length=3, choices=[(unit.name, unit.value) for unit in WeightMeasurementUnits])
+    heightUnits = models.CharField(default=HeightMeasurementUnits.M, max_length=10, choices=[(unit.name, unit.value) for unit in HeightMeasurementUnits])
+    weightUnits = models.CharField(default=WeightMeasurementUnits.KG, max_length=10, choices=[(unit.name, unit.value) for unit in WeightMeasurementUnits])
     exerciseIntensity = models.CharField(default=ExerciseIntensity.MODERATE,max_length=50,
                                          choices=[(intensity.name, intensity.value) for intensity in ExerciseIntensity])
     height = models.FloatField(null=True)

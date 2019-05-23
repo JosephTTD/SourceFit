@@ -129,7 +129,7 @@ def create_goal_view(request):
             post = form.save(commit=False)
             post.user = instance
             post.save()
-            redirect('/Users/goals.html')
+            redirect('Users-goals.html')
     else:
         form = GoalCreationForm()
     return render(request, 'Users/goal_entry.html', {'form': form})
@@ -144,7 +144,7 @@ def create_diet_view(request):
             post = form.save(commit=False)
             post.user = instance
             post.save()
-            return redirect('/Users/diet.html')
+            return redirect('Users-diet.html')
     else:
         form = DietCreationForm()
     return render(request, 'Users/add_diet.html', {'form': form})
