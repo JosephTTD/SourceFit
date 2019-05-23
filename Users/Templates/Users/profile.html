@@ -5,7 +5,8 @@
 
     <div style="margin-bottom: 20px">
         <img class="profile" src="{% static 'media/profile-default.png' %}" style="height: 100px" alt="">
-        <span style="font-size: 25px; margin-left: 40px">{{post.First_name}} {{post.Second_name}}</span>
+        <span style="font-size: 25px; margin-left: 40px">{{post.full_name}}</span>
+        <span>@{{post.display_name}}</span>
     </div>
 <div class="alert alert-info">
   This is your profile that stores all your personal information
@@ -26,7 +27,7 @@
     <div class="col-md-3">
         <div class="jumbotron jumb3 pro_jumbo">
         <h4>You should reach your goal in</h4>
-            <h3 class="dash_data">{{ post.reach_goal }}  <span class="measure">days</span></h3>
+            <h3 class="dash_data">{{ post.days_left }}  <span class="measure">days</span></h3>
         </div>
     </div>
     <div class="col-md-3">
