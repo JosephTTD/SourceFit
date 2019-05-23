@@ -416,6 +416,7 @@ select[multiple], select[size] {
 .table {
     display:table;
     width: 60% !important;
+    width: 60% !important;
 }
 
    .table-cell {
