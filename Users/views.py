@@ -130,8 +130,8 @@ def display_exercise_view(request):
 def display_diet_view(request):
     instance = User.objects.get(username=request.user.username)
     date_from = datetime.datetime.now() - datetime.timedelta(days=1)
-
-    queryset = DietData.objects.filter(user__username=instance.username).values("")
+    maintenance_calories = instance.calculate_maintenance_calories()
+    queryset = DietData.objects.filter(user__username=instance.username).values("calorificCount", "dateAdded", "foodOrDrinkName", "typeOfMeal")
     queryAllDailyCalories = DietData.objects.filter(user__username=instance.username,
                                                     dateAdded__gte=date_from).values_list('calorificCount',flat=True)
     dailyCalories = 0
@@ -139,7 +139,8 @@ def display_diet_view(request):
         dailyCalories += i
     context = {
         'posts': queryset,
-        'dailyCalories': dailyCalories
+        'dailyCalories': dailyCalories,
+        'maintenance_calories': maintenance_calories
     }
 
     return render(request, "Users/diet.html", context)
