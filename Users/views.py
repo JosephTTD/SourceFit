@@ -17,6 +17,7 @@ def home_view(request):
 @login_required(login_url='Users-login')
 def dashboard_view(request):
     instance = User.objects.get(username=request.user.username)
+    print(instance.weight)
     maintenance_calories = instance.calculate_maintenance_calories()
     current_weight = instance.weight
     user_weight_units = instance.weightUnits
@@ -97,11 +98,8 @@ def display_goal_view(request):
 def display_exercise_view(request):
     instance = User.objects.get(username=request.user.username)
     queryset = Activity.objects.filter(user__username=instance.username)
-    '''context = {
-        "Exercise_object_list": queryset
-    }'''
     context = {
-        'posts': posts
+        'posts' : posts
     }
     return render(request, "Users/exercise.html", context)
 
@@ -114,7 +112,12 @@ def display_diet_view(request):
     context = {
         "posts": queryset
     }
-    return render(request, "Users/diet.html", context)
+
+    testdata = {
+        'posts':posts
+    }
+
+    return render(request, "Users/diet.html", testdata, context)
 
 
 @login_required(login_url='Users-login')
@@ -126,7 +129,7 @@ def create_goal_view(request):
             post = form.save(commit=False)
             post.user = instance
             post.save()
-            redirect('Users-goals')
+            redirect('/Users/goals.html')
     else:
         form = GoalCreationForm()
     return render(request, 'Users/goal_entry.html', {'form': form})
@@ -141,7 +144,7 @@ def create_diet_view(request):
             post = form.save(commit=False)
             post.user = instance
             post.save()
-            redirect('Users-diet')
+            return redirect('/Users/diet.html')
     else:
         form = DietCreationForm()
     return render(request, 'Users/add_diet.html', {'form': form})
@@ -156,7 +159,7 @@ def create_exercise_view(request):
             post = form.save(commit=False)
             post.user = instance
             post.save()
-            redirect('Users-exercise')
+            return redirect('Users-exercise')
     else:
         form = ActivityCreationForm()
     return render(request, 'Users/exercise_entry.html', {'form': form})
@@ -169,7 +172,7 @@ def register_view(request):
             form.save()
             username = form.cleaned_data.get('username')
             messages.success(request, f'Account created for {username}.')
-            return redirect('Users-login')
+            return redirect('/Users/login.html')
     else:
         form = UserRegisterForm()
     return render(request, 'Users/register.html', {'form': form})
