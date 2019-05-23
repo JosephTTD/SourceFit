@@ -13,13 +13,13 @@
     <div class="col-md-6">
         <div class="jumbotron jumb1 fade-right">
         <h4>Current weight</h4>
-            <h3 class="dash_data">{{post.current_weight}} <span class="measure">{{post.goal_weight_units.value}}</span></h3>
+            <h3 class="dash_data">{{post.current_weight}} <span class="measure">kg</span></h3>
         </div>
     </div>
     <div class="col-md-6">
         <div class="jumbotron jumb2">
         <h4>Goal weight</h4>
-            <h3 class="dash_data">{{ post.maintenance_calories }}  <span class="measure">kg</span></h3>
+            <h3 class="dash_data">{{ post.goal_weight }}  <span class="measure">{{post.goal_weight_units.value}}</span></h3>
         </div>
     </div>
 </div>
@@ -32,8 +32,8 @@
     </div>
     <div class="col-md-6">
         <div class="jumbotron jumb4">
-        <h4>Calories you've consumed today</h4>
-            <h3 class="dash_data">{{ post.}}  <span class="measure">kcal</span></h3>
+        <h4>Maintenance Calories</h4>
+            <h3 class="dash_data">{{ post.maintenance_calories}}  <span class="measure">kcal</span></h3>
         </div>
     </div>
 </div>

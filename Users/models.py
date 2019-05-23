@@ -206,10 +206,10 @@ class CustomUser(AbstractUser):
             bmr *= float(1.55)
         else:
             bmr *= float(1.725)
-        return round(bmr, 2)
+        return round(bmr)
 
     def calculate_bmr(self):
-        height = Conversions.from_height_units_to_m(self.heightUnits, self.height) * float(100)
+        height = Conversions.from_height_units_to_m(self.heightUnits, self.height)
         weight = Conversions.from_weight_units_to_kg(self.weightUnits, self.weight)
         return (float(10) * weight) + ((float(6.25) * height) - float(5)) * float(self.calculate_age())
 

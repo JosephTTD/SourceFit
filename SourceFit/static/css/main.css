@@ -413,3 +413,12 @@ select[multiple], select[size] {
     -o-transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s;
     transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s;
 }
+.table {
+    display:table;
+    width: 60% !important;
+}
+
+   .table-cell {
+     Display:table-cell;
+     Vertical-align:top;
+   }
