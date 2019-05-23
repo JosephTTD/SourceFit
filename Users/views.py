@@ -1,7 +1,9 @@
+from django.template.loader import render_to_string
+
 from .forms import UserRegisterForm, UserLoginForm, GoalCreationForm, DietCreationForm, ActivityCreationForm
 from django.contrib import messages
 import datetime
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, render_to_response
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth import authenticate, login, logout, get_user_model
 from .models import Goal, ExerciseIntensity, DietData, CustomUser, Activity, WeightMeasurementUnits
@@ -115,9 +117,10 @@ def display_exercise_view(request):
 def display_diet_view(request):
     instance = User.objects.get(username=request.user.username)
     date_from = datetime.datetime.now() - datetime.timedelta(days=1)
-    queryset = DietData.objects.filter(user__username=instance.username, dateAdded__gte=date_from)
+
+    queryset = DietData.objects.filter(user__username=instance.username).values("")
     queryAllDailyCalories = DietData.objects.filter(user__username=instance.username,
-                                                    dateAdded__gte=date_from).values_list('calorificCount', flat=True)
+                                                    dateAdded__gte=date_from).values_list('calorificCount',flat=True)
     dailyCalories = 0
     for i in queryAllDailyCalories:
         dailyCalories += i
@@ -126,10 +129,6 @@ def display_diet_view(request):
         'dailyCalories': dailyCalories
     }
     print(queryset)
-
-    testdata = {
-        'posts':posts
-    }
 
     return render(request, "Users/diet.html", context)
 
@@ -140,14 +139,16 @@ def create_goal_view(request):
     if request.method == 'POST' and Goal:
         form = GoalCreationForm(request.POST)
         if form.is_valid():
-            post = form.save(commit=False)
-            post.user = instance
-            post.save()
-
-            redirect('Users/goals.html')
+            if Goal.objects.filter(user__username=instance.username).exists():
+                return redirect('Users-goals')
+            else:
+                post = form.save(commit=False)
+                post.user = instance
+                post.save()
+                return redirect('Users-goals')
     else:
         form = GoalCreationForm()
-    return render(request, 'Users/goal_entry.html', {'form': form})
+    return render(request, 'Users/goal_entry.html', {'form': form},)
 
 
 @login_required(login_url='Users-login')
@@ -209,7 +210,7 @@ def login_view(request):
 def logout_view(request):
     if request.method == 'POST':
         logout(request)
-        return redirect('/Users/login.html')
+        return redirect('Users-login')
 
 
 posts = [
