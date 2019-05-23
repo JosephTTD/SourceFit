@@ -1,7 +1,6 @@
 {% extends "Users/base1.html" %}
 {% load staticfiles %}
 {% block content %}
-{% for post in posts %}
 
 <div class="alert alert-info">
   You can record/change info about your diet by clicking the button with the pencil icon
@@ -30,7 +29,9 @@
     <div class="col-md-6">
         <div class="jumbotron jumb2">
         <h4>You goal Calories</h4>
-            <h3 class="dash_data">{{ post.calories_consumed }} <span class="measure">kcal</span></h3>
+            <h3 class="dash_data">
+                    {{ dailyCalories }}
+                <span class="measure">kcal</span></h3>
             <button><span data-feather="edit-2"></span>Change</button>
         </div>
     </div>
@@ -49,5 +50,5 @@
     </div>
 
 </div>
-{% endfor %}
+
 {% endblock content %}
