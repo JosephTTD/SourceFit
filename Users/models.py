@@ -152,20 +152,22 @@ class Conversions:
     @staticmethod
     def from_weight_units_to_kg(weight_units, weight):
         temp_weight = weight
-        if weight_units == WeightMeasurementUnits.LB:
+        if weight_units == WeightMeasurementUnits.LB.name:
             temp_weight = Conversions.weight_pounds_to_kg(weight)
-        elif weight_units == WeightMeasurementUnits.ST:
+        elif weight_units == WeightMeasurementUnits.ST.name:
             temp_weight = Conversions.weight_stone_to_kg(weight)
         return temp_weight
 
     @staticmethod
     def from_height_units_to_m(height_units, height):
         temp_height = height
-        if height_units == HeightMeasurementUnits.CM:
+        HeightMeasurementUnits.FT.name.strip()
+        height_units.strip()
+        if height_units == HeightMeasurementUnits.CM.name:
             temp_height = Conversions.height_centimeters_to_meters(height)
-        elif height_units == HeightMeasurementUnits.FT:
+        elif height_units == HeightMeasurementUnits.FT.name:
             temp_height = Conversions.height_feet_to_meters(height)
-        elif height_units == HeightMeasurementUnits.IN:
+        elif height_units == HeightMeasurementUnits.IN.name:
             temp_height = Conversions.height_inches_to_meters(height)
         return temp_height
 
@@ -194,15 +196,11 @@ class CustomUser(AbstractUser):
     def calculate_maintenance_calories(self):
         bmr = self.calculate_bmr()
 
-        if self.gender == GenderEnum.F:
-            bmr -= float(161)
-        else:
-            bmr += float(5)
-        if self.exerciseIntensity == ExerciseIntensity.SEDENTARY:
+        if self.exerciseIntensity == ExerciseIntensity.SEDENTARY.name:
             bmr *= float(1.2)
-        elif self.exerciseIntensity == ExerciseIntensity.LIGHT:
+        elif self.exerciseIntensity == ExerciseIntensity.LIGHT.name:
             bmr *= float(1.375)
-        elif self.exerciseIntensity == ExerciseIntensity.MODERATE:
+        elif self.exerciseIntensity == ExerciseIntensity.MODERATE.name:
             bmr *= float(1.55)
         else:
             bmr *= float(1.725)
@@ -210,8 +208,20 @@ class CustomUser(AbstractUser):
 
     def calculate_bmr(self):
         height = Conversions.from_height_units_to_m(self.heightUnits, self.height)
+        age = self.calculate_age()
+        if self.gender == GenderEnum.M.name:
+            age *= 5.677
+            constant = 88.362
+            w_constant = 13.397
+            h_constant = 4.799
+        else:
+            constant = 447.593
+            w_constant = 9.247
+            h_constant = 3.098
+            age *= 4.330
+        height = Conversions.from_height_units_to_m(self.heightUnits, self.height) * 100
         weight = Conversions.from_weight_units_to_kg(self.weightUnits, self.weight)
-        return (float(10) * weight) + ((float(6.25) * height) - float(5)) * float(self.calculate_age())
+        return constant + (w_constant*weight) + (h_constant*height) - age
 
     def calculate_healthiness(self):
         bmi = self.calculate_bmi()
