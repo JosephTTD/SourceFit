@@ -9,10 +9,11 @@
   </div>
 
 <div class="alert alert-info">
-  Clicking Complete marks the activity as complete and removes it
+    Flip the switch to mark the activity as complete
 </div>
 <div class="row" style="margin-top: 40px">
     {% for q in queryset %}
+
   <div class="col-md-6">
         {% if q.typeofActivity == 'Running' %}
         <div class="jumbotron jumb4">
@@ -21,6 +22,7 @@
         <h4 >{{q.typeOfActivity}}</h4>
             <h3 class="dash_data">
                     {{q.activityName }}
+            </h3>
                 <div class="table">
                 <h5 class="table-cell">{{q.activityDuration}} s<span data-feather="watch"></span></h5>
                 <h5 class="table-cell">{{q.activityDistance}} m<span data-feather="corner-right-up"></span></h5>
@@ -30,8 +32,7 @@
                     <span data-feather="x-circle"></span>
                     {% endif %}
                 </div>
-            </h3>
-            <button><span data-feather="check-circle"></span>Complete</button>
+            <input action="POST" type="checkbox" class="flipswitch" name="{{q.activityName}}"/>
         </div>
     </div>
         {% endif %}

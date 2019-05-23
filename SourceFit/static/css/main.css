@@ -396,6 +396,7 @@ select[multiple], select[size] {
     border: solid 1px #e0e0e0;
     border-radius: 4px;
 }
+
 .choice-form {
     padding: 17px 12px !important;
     box-shadow: none !important;
@@ -408,18 +409,60 @@ select[multiple], select[size] {
     line-height: 1.42857143;
     color: #555;
     background-image: none;
-    -webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,.075);
-    -webkit-transition: border-color ease-in-out .15s,-webkit-box-shadow ease-in-out .15s;
-    -o-transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s;
-    transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s;
+    -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075);
+    -webkit-transition: border-color ease-in-out .15s, -webkit-box-shadow ease-in-out .15s;
+    -o-transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s;
+    transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s;
 }
+
 .table {
-    display:table;
-    width: 60% !important;
+    display: table;
     width: 60% !important;
 }
 
-   .table-cell {
-     Display:table-cell;
-     Vertical-align:top;
-   }
+.table-cell {
+    Display: table-cell;
+    Vertical-align: top;
+}
+
+.flipswitch {
+    position: relative;
+    background: transparent;
+    width: 120px;
+    height: 40px;
+    -webkit-appearance: initial;
+    border-radius: 30px;
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    outline: none;
+    font-size: 14px;
+    font-family: Trebuchet, Arial, sans-serif;
+    font-weight: bold;
+    cursor: pointer;
+    border: 1px solid #fff;
+}
+
+.flipswitch:after {
+    position: absolute;
+    top: 5%;
+    display: block;
+    line-height: 32px;
+    width: 45%;
+    height: 90%;
+    background: transparent;
+    box-sizing: border-box;
+    text-align: center;
+    transition: all 0.3s ease-in 0s;
+    color: #fff;
+    border: #fff 1px solid;
+    border-radius: 30px;
+}
+
+.flipswitch:after {
+    left: 2%;
+    content: "No";
+}
+
+.flipswitch:checked:after {
+    left: 53%;
+    content: "Yes";
+}
