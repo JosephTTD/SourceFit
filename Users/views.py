@@ -78,17 +78,20 @@ def display_goal_view(request):
             goal.delete()
 
     if goal is not None:
-        goal_complete = goal.check_goal_is_complete(instance.weightUnits, instance.weight)
+        goal_completed = goal.check_goal_is_complete(instance.weightUnits, instance.weight)
         goal_exceeded = goal.check_goal_is_expired()
         if goal_exceeded:
-            goal['goalExceeded'] = True
-        elif goal_complete:
-            goal['goalCompletion'] = True
-        goal.save()
+            goal.goalExceeded = True
+            goal.save()
+        elif goal_completed:
+            goal.goalCompletion = True
+            goal.save()
         # days left till goal deadline
         days_left = goal.return_days_to_goal_deadline()
         goal_weight = goal.goalWeight
         goal_weight_units = goal.weightUnits
+        goal_complete = goal.goalCompletion
+        goal_exceed = goal.goalExceeded
     else:
         goal_exceeded = False
         goal_complete = False
@@ -100,8 +103,8 @@ def display_goal_view(request):
     posts = [
 
         {
-            'goal_exceeded': goal_exceeded,
-            'goal_complete': goal_complete,
+            'goal_exceeded': goal_exceed,
+            'goal_completion': goal_complete,
             'days_left': days_left,
             'goal_weight': goal_weight,
             'goal_weight_units': goal_weight_units,
