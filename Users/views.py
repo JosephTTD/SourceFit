@@ -111,7 +111,7 @@ def display_goal_view(request):
     posts = [
 
         {
-            'goal_exceeded': goal_exceed,
+            'goal_exceeded': goal_exceeded,
             'goal_completion': goal_complete,
             'days_left': days_left,
             'goal_weight': goal_weight,
@@ -153,7 +153,7 @@ def display_diet_view(request):
     for i in queryAllDailyCalories:
         dailyCalories += i
     context = {
-        'posts': queryset,
+        'queryset': queryset,
         'dailyCalories': dailyCalories,
         'maintenance_calories': maintenance_calories
     }
@@ -257,6 +257,12 @@ def profile(request):
     maintenance_calories = instance.calculate_maintenance_calories()
     current_weight = instance.weight
     user_weight_units = instance.weightUnits
+    date_from = datetime.datetime.now() - datetime.timedelta(days=1)
+    queryAllDailyCalories = DietData.objects.filter(user__username=instance.username,
+                                                    dateAdded__gte=date_from).values_list('calorificCount',flat=True)
+    dailyCalories = 0
+    for i in queryAllDailyCalories:
+        dailyCalories += i
     #boolean whether goal is complete or not
     try:
         goal = Goal.objects.get(user__username=instance.username)
@@ -291,6 +297,7 @@ def profile(request):
     ]
 
     context = {
+        'dailyCalories' : dailyCalories,
         'posts': posts,
         'form': form
     }

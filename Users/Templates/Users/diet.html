@@ -3,12 +3,12 @@
 {% block content %}
 
 <div class="alert alert-info">
-  You can record/change info about your diet by clicking the button with the pencil icon
+    You can record/change info about your diet by clicking the button with the pencil icon
 </div>
- <div class="jumbotron jumb3" style="margin-top: 40px;">
-     <h4>Caloric Intake</h4>
+<div class="jumbotron jumb3" style="margin-top: 40px;">
+    <h4>Caloric Intake</h4>
     <h2>{{dailyCalories}}/{{maintenance_calories}}</h2>
-  </div>
+</div>
 <div class="row" style="margin-top: 40px">
     <!--<div class="col-md-6">
         <div class="jumbotron jumb1">
@@ -19,72 +19,88 @@
     </div>-->
     <div class="col-md-6">
         <div class="jumbotron jumb4">
-        <h4>Food Intake </h4>
+            <h4>Food Intake </h4>
             <h3 class="dash_data">Add your meals</h3>
-            <a href="{% url 'Users-add_diet' %}"><button><span data-feather="edit-2"></span>Record</button></a>
+            <a href="{% url 'Users-add_diet' %}">
+                <button><span data-feather="edit-2"></span>Record</button>
+            </a>
         </div>
     </div>
     <div class="col-md-6">
         <div class="jumbotron jumb2">
-        <h4>You maintenance Calories</h4>
+            <h4>You maintenance Calories</h4>
             <h3 class="dash_data">{{ maintenance_calories }} <span class="measure">kcal</span></h3>
         </div>
     </div>
     <div class="col-md-12">
         <div class="alert alert-info alert-dismissible">
-  <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+            <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
             You can view the history of your meals by clicking on view in Meal Record
-</div>
+        </div>
     </div>
     <div class="col-md-5">
         <div class="jumbotron jumb3">
             <h4>Meal Record</h4>
             <!--<h3 class="dash_data">Here's a list of your recorded meals</h3>-->
-            <button><span data-feather="eye"></span>view</button>
+            <button id="myBtn"><span data-feather="eye"></span>view</button>
         </div>
     </div>
 
 </div>
 
-<!-- Trigger/Open The Modal -->
-<button style="background: #000; color: #fff;" id="myBtn">Open Modal</button>
-
 <!-- The Modal -->
 <div id="myModal" class="modal">
 
-  <!-- Modal content -->
-  <div class="modal-content">
-    <span class="close">&times;</span>
-    <p>Some text in the Modal..</p>
-  </div>
+    <!-- Modal content -->
+    <div class="modal-content">
+        <span class="close">&times;</span>
 
+        <table style="width: 100%">
+            <tr>
+                <th>Calories</th>
+                <th>Date added</th>
+                <th>Food</th>
+                <th>Meal Type</th>
+            </tr>
+            {% for q in queryset%}
+            <tr>
+                <td>{{q.calorificCount}}</td>
+                <td>{{q.dateAdded}}</td>
+                <td>{{q.foodOrDrinkName}}</td>
+                <td>{{q.typeOfMeal}}</td>
+                {% endfor %}
+            </tr>
+        </table>
+    </div>
+
+    <!--  calorificCount", "dateAdded", "foodOrDrinkName", "typeOfMeal -->
 </div>
 
 <script>
     // Add a goal Modal
-var modal = document.getElementById("myModal");
+    var modal = document.getElementById("myModal");
 
-// Get the button that opens the modal
-var btn = document.getElementById("myBtn");
+    // Get the button that opens the modal
+    var btn = document.getElementById("myBtn");
 
-// Get the <span> element that closes the modal
-var span = document.getElementsByClassName("close")[0];
+    // Get the <span> element that closes the modal
+    var span = document.getElementsByClassName("close")[0];
 
-// When the user clicks on the button, open the modal
-btn.onclick = function() {
-  modal.style.display = "block";
-}
+    // When the user clicks on the button, open the modal
+    btn.onclick = function () {
+        modal.style.display = "block";
+    }
 
-// When the user clicks on <span> (x), close the modal
-span.onclick = function() {
-  modal.style.display = "none";
-}
+    // When the user clicks on <span> (x), close the modal
+    span.onclick = function () {
+        modal.style.display = "none";
+    }
 
-// When the user clicks anywhere outside of the modal, close it
-window.onclick = function(event) {
-  if (event.target == modal) {
-    modal.style.display = "none";
-  }
-}
+    // When the user clicks anywhere outside of the modal, close it
+    window.onclick = function (event) {
+        if (event.target == modal) {
+            modal.style.display = "none";
+        }
+    }
 </script>
 {% endblock content %}
