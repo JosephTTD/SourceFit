@@ -48,7 +48,6 @@ class ActivityCreationForm(forms.ModelForm):
         distance = self.cleaned_data['activityDistance']
         duration = self.cleaned_data['activityDuration']
 
-
         if not (distance or duration):
             raise forms.ValidationError("You must at least one of distance or duration")
         if not name:
