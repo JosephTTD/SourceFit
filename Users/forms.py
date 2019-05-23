@@ -14,7 +14,7 @@ from django.contrib.auth.forms import AuthenticationForm
 from django.forms.widgets import PasswordInput, TextInput
 
 
-class GoalCreationForm(forms.Form):
+class GoalCreationForm(forms.ModelForm):
     goalWeight = forms.FloatField(widget=forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'example: Enter your goal weight'}), )
     weightUnits = forms.ChoiceField(widget=forms.Select(attrs={'class': 'choice-form', 'placeholder': ''}),choices=[(unit.name, unit.value) for unit in WeightMeasurementUnits])
     goalDate = forms.DateField(widget=forms.SelectDateWidget(years=range(2019, 2070),attrs={'class': 'date-form'}))
@@ -59,7 +59,7 @@ class ActivityCreationForm(forms.ModelForm):
         fields = ('activityName','activityDuration', 'activityDistance', 'typeOfActivity',)
 
 
-class DietCreationForm(forms.Form):
+class DietCreationForm(forms.ModelForm):
     calorificCount = forms.FloatField(
         widget=forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'example: Enter the calories'}), )
     typeOfMeal = forms.ChoiceField(widget=forms.Select(attrs={'class': 'choice-form', 'placeholder': ''}),
