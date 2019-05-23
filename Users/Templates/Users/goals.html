@@ -22,7 +22,13 @@
         <div class="jumbotron jumb4">
         <h4>You goal weight</h4>
             <h3 class="dash_data">{{ post.goal_weight }} <span class="measure">kcal</span></h3>
-             <button><span data-feather="check-circle"></span>Complete</button>
+                    {% if post.goal_complete is True or post.goal_exceeded is False %}
+                    <p><span data-feather="check"></span>Well done!</p>
+                    {% else %}
+                    <p><span data-feather="x-circle"></span>You're nearly there</p>
+                    {% endif %}
+                </div>
+
         </div>
     </div>
 
