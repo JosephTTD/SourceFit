@@ -93,10 +93,10 @@ class Activity(models.Model):
 class Goal(models.Model):
     user = models.OneToOneField(settings.AUTH_USER_MODEL, on_delete=models.CASCADE, null=True, blank=True)
     goalWeight = models.FloatField(null=True)
-    weightUnits = models.CharField(default=WeightMeasurementUnits.KG, max_length=3,
+    weightUnits = models.CharField(default=WeightMeasurementUnits.KG, max_length=50,
                                    choices=[(unit.name, unit.value) for unit in WeightMeasurementUnits])
     goalDate = models.DateField(null=True)
-    typeOfGoal = models.CharField(default=GoalType.MAINTAIN, max_length=3, choices=[(unit.name, unit.value) for unit in GoalType])
+    typeOfGoal = models.CharField(default=GoalType.MAINTAIN, max_length=50, choices=[(unit.name, unit.value) for unit in GoalType])
     goalCompletion = models.BooleanField(default=False)
     goalExceeded = models.BooleanField(default=False)
 
