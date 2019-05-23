@@ -1,9 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="629b401b-bed7-40f8-8f60-3f410df9192c" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/Users/migrations/0001_initial.py" beforeDir="false" />
-    </list>
+    <list default="true" id="629b401b-bed7-40f8-8f60-3f410df9192c" name="Default Changelist" comment="" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -225,10 +223,10 @@
     </option>
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="-11" />
-    <option name="y" value="-11" />
-    <option name="width" value="980" />
-    <option name="height" value="1031" />
+    <option name="x" value="-12" />
+    <option name="y" value="-12" />
+    <option name="width" value="981" />
+    <option name="height" value="1032" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectView">
@@ -329,12 +327,12 @@
       <workItem from="1558101834428" duration="8841000" />
       <workItem from="1558115978312" duration="9681000" />
       <workItem from="1558192317218" duration="13961000" />
-      <workItem from="1558435976516" duration="89125000" />
+      <workItem from="1558435976516" duration="89174000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="216271000" />
+    <option name="totallyTimeSpent" value="216320000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-7" y="-7" width="1295" height="695" extended-state="6" />
