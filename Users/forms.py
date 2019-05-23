@@ -15,17 +15,24 @@ from django.forms.widgets import PasswordInput, TextInput
 
 
 class GoalCreationForm(forms.ModelForm):
-    goalWeight = forms.FloatField(widget=forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'example: Enter your goal weight'}), )
-    weightUnits = forms.ChoiceField(widget=forms.Select(attrs={'class': 'choice-form', 'placeholder': ''}),choices=[(unit.name, unit.value) for unit in WeightMeasurementUnits])
-    goalDate = forms.DateField(widget=forms.SelectDateWidget(years=range(2019, 2070),attrs={'class': 'date-form'}))
-    typeOfGoal = forms.ChoiceField(widget=forms.Select(attrs={'class': 'choice-form', 'placeholder': ''}), choices=[(unit.name, unit.value) for unit in GoalType])
+    goalWeight = forms.FloatField(
+        widget=forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'example: Enter your goal weight'}), )
+    weightUnits = forms.ChoiceField(widget=forms.Select(attrs={'class': 'choice-form', 'placeholder': ''}),
+                                    choices=[(unit.name, unit.value) for unit in WeightMeasurementUnits])
+    goalDate = forms.DateField(widget=forms.SelectDateWidget(years=range(2019, 2070), attrs={'class': 'date-form'}))
+    typeOfGoal = forms.ChoiceField(widget=forms.Select(attrs={'class': 'choice-form', 'placeholder': ''}),
+                                   choices=[(unit.name, unit.value) for unit in GoalType])
 
     def clean(self):
-        date = self.cleaned_data['goalDate']
+        # date = self.cleaned_data['goalDate']
         weight = self.cleaned_data['goalWeight']
 
+        ###FOR DEMO PURPOSES, GOAL DATE CAN BE SET BEFORE###
+        ###TO CHECK IF GOAL IS EXCEEDED###
+        '''
         if date < datetime.date.today():
             raise forms.ValidationError("Goal date can't be in the past")
+        '''
         if not weight:
             raise forms.ValidationError("You must enter a goal weight")
         return self.cleaned_data
@@ -37,9 +44,12 @@ class GoalCreationForm(forms.ModelForm):
 
 class ActivityCreationForm(forms.ModelForm):
     activityDistance = forms.IntegerField(
-        widget=forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'example: Enter your goal distance in m'}), )
-    activityDuration = forms.IntegerField(widget=forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'example: Enter duration in seconds'}),)
-    activityName = forms.CharField(widget=forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Enter activity name'}), )
+        widget=forms.TextInput(
+            attrs={'class': 'form-control', 'placeholder': 'example: Enter your goal distance in m'}), )
+    activityDuration = forms.IntegerField(
+        widget=forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'example: Enter duration in seconds'}), )
+    activityName = forms.CharField(
+        widget=forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Enter activity name'}), )
     typeOfActivity = forms.ChoiceField(widget=forms.Select(attrs={'class': 'choice-form', 'placeholder': ''}),
                                        choices=[(type.name, type.value) for type in ActivityType])
 
@@ -56,7 +66,7 @@ class ActivityCreationForm(forms.ModelForm):
 
     class Meta:
         model = Activity
-        fields = ('activityName','activityDuration', 'activityDistance', 'typeOfActivity',)
+        fields = ('activityName', 'activityDuration', 'activityDistance', 'typeOfActivity',)
 
 
 class DietCreationForm(forms.ModelForm):
@@ -82,25 +92,40 @@ class DietCreationForm(forms.ModelForm):
 
 
 class UserLoginForm(AuthenticationForm):
-    username = forms.CharField(widget=TextInput(attrs={'class': 'form-control', 'placeholder': 'Enter usrname or Email'}))
-    password = forms.CharField(widget=PasswordInput(attrs={'class': 'form-control', 'placeholder': 'Enter your password'}))
+    username = forms.CharField(
+        widget=TextInput(attrs={'class': 'form-control', 'placeholder': 'Enter usrname or Email'}))
+    password = forms.CharField(
+        widget=PasswordInput(attrs={'class': 'form-control', 'placeholder': 'Enter your password'}))
 
 
 class UserRegisterForm(UserCreationForm):
-
-    username = forms.CharField(widget=forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'example: healthlover101'}))
-    dob = forms.DateField(label="Date of Birth", required=True, widget=forms.SelectDateWidget(years=range(2019, 1920, -1), attrs={'class': 'date-form'}))
-    email = forms.EmailField(widget=forms.EmailInput(attrs={'class': 'form-control', 'placeholder': 'example: you@mail.com'}))
-    first_name = forms.CharField(widget=forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'example: John'}))
-    last_name = forms.CharField(widget=forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'example: Smith'}))
-    password1 = forms.CharField(label = "Create Password", widget=forms.PasswordInput(attrs={'class': 'form-control', 'placeholder': 'Your Password should be 6 or more characters'}))
-    password2 = forms.CharField(label = "Confirm your mom", widget=forms.PasswordInput(attrs={'class': 'form-control', 'placeholder': 'example: Confirm your password'}))
-    gender = forms.ChoiceField(widget=forms.Select(attrs={'class': 'choice-form', 'placeholder': ''}), choices=[(sex.name, sex.value) for sex in GenderEnum])
-    heightUnits = forms.ChoiceField(widget=forms.Select(attrs={'class': 'choice-form', 'placeholder': ''}), choices=[(unit.name, unit.value) for unit in HeightMeasurementUnits])
-    weightUnits = forms.ChoiceField(widget=forms.Select(attrs={'class': 'choice-form', 'placeholder': ''}),choices=[(unit.name, unit.value) for unit in WeightMeasurementUnits])
-    height = forms.IntegerField(widget=forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'example: Enter your height'}),)
-    weight = forms.IntegerField(widget=forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'example: Enter your weight'}), )
-    exerciseIntensity = forms.ChoiceField(widget=forms.Select(attrs={'class': 'choice-form', 'placeholder': ''}), choices=[(intensity.name, intensity.value) for intensity in ExerciseIntensity])
+    username = forms.CharField(
+        widget=forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'example: healthlover101'}))
+    dob = forms.DateField(label="Date of Birth", required=True,
+                          widget=forms.SelectDateWidget(years=range(2019, 1920, -1), attrs={'class': 'date-form'}))
+    email = forms.EmailField(
+        widget=forms.EmailInput(attrs={'class': 'form-control', 'placeholder': 'example: you@mail.com'}))
+    first_name = forms.CharField(
+        widget=forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'example: John'}))
+    last_name = forms.CharField(
+        widget=forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'example: Smith'}))
+    password1 = forms.CharField(label="Create Password", widget=forms.PasswordInput(
+        attrs={'class': 'form-control', 'placeholder': 'Your Password should be 6 or more characters'}))
+    password2 = forms.CharField(label="Confirm your mom", widget=forms.PasswordInput(
+        attrs={'class': 'form-control', 'placeholder': 'example: Confirm your password'}))
+    gender = forms.ChoiceField(widget=forms.Select(attrs={'class': 'choice-form', 'placeholder': ''}),
+                               choices=[(sex.name, sex.value) for sex in GenderEnum])
+    heightUnits = forms.ChoiceField(widget=forms.Select(attrs={'class': 'choice-form', 'placeholder': ''}),
+                                    choices=[(unit.name, unit.value) for unit in HeightMeasurementUnits])
+    weightUnits = forms.ChoiceField(widget=forms.Select(attrs={'class': 'choice-form', 'placeholder': ''}),
+                                    choices=[(unit.name, unit.value) for unit in WeightMeasurementUnits])
+    height = forms.IntegerField(
+        widget=forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'example: Enter your height'}), )
+    weight = forms.IntegerField(
+        widget=forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'example: Enter your weight'}), )
+    exerciseIntensity = forms.ChoiceField(widget=forms.Select(attrs={'class': 'choice-form', 'placeholder': ''}),
+                                          choices=[(intensity.name, intensity.value) for intensity in
+                                                   ExerciseIntensity])
 
     def save(self, commit=True):
         user = super(UserRegisterForm, self).save(commit=False)
@@ -140,5 +165,6 @@ class UserRegisterForm(UserCreationForm):
     class Meta:
         model = get_user_model()
         fields = (
-         'username', 'email', 'first_name', 'last_name', 'password1', 'password2', 'dob', 'gender', 'height', 'heightUnits',
+            'username', 'email', 'first_name', 'last_name', 'password1', 'password2', 'dob', 'gender', 'height',
+            'heightUnits',
             'weight', 'weightUnits', 'exerciseIntensity')

@@ -102,22 +102,18 @@ class Goal(models.Model):
 
     def check_goal_is_expired(self):
         if date.today() >= self.goalDate:
-            self.goalExceeded = True
             return True
         return False
 
     def check_goal_is_complete(self, user_weight_units, user_weight):
         goalWeight = Conversions.from_weight_units_to_kg(self.weightUnits, self.goalWeight)
         userWeight = Conversions.from_weight_units_to_kg(user_weight_units, user_weight)
-        if self.typeOfGoal == GoalType.LOSE and userWeight < goalWeight:
-            self.goalCompletion = True
+        if self.typeOfGoal == GoalType.LOSE.name and userWeight < goalWeight:
             return True
-        elif self.typeOfGoal == GoalType.MAINTAIN and (
+        elif self.typeOfGoal == GoalType.MAINTAIN.name and (
                 (goalWeight - float(2)) <= userWeight <= (goalWeight - float(2))):
-            self.goalCompletion = True
             return True
-        elif self.typeOfGoal == GoalType.GAIN and userWeight > goalWeight:
-            self.goalCompletion = True
+        elif self.typeOfGoal == GoalType.GAIN.name and userWeight > goalWeight:
             return True
         return False
 
