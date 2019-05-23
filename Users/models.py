@@ -82,8 +82,8 @@ class DietData(models.Model):
 
 class Activity(models.Model):
     user = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE, related_name='user_activity', null=True, blank=True)
-    activityDistance = models.IntegerField(null=True)
-    activityDuration = models.IntegerField(null=True)
+    activityDistance = models.IntegerField(null=True, blank=True)
+    activityDuration = models.IntegerField(null=True, blank=True)
     activityName = models.CharField(null=True, max_length=100)
     typeOfActivity = models.CharField(default=ActivityType.RUNNING, max_length=50,
                                       choices=[(type.name, type.value) for type in ActivityType])

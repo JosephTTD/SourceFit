@@ -73,6 +73,10 @@ def display_goal_view(request):
     except Goal.DoesNotExist:
         goal = None
 
+    if request.POST and goal is not None:
+        if request.method == 'POST':  # If method is POST,
+            goal.delete()
+
     if goal is not None:
         goal_complete = goal.check_goal_is_complete(instance.weightUnits, instance.weight)
         goal_exceeded = goal.check_goal_is_expired()
@@ -92,6 +96,7 @@ def display_goal_view(request):
         days_left = 0
         goal_weight = float(0)
         goal_weight_units = WeightMeasurementUnits.KG.value
+
     posts = [
 
         {
@@ -112,7 +117,8 @@ def display_goal_view(request):
 @login_required(login_url='Users-login')
 def display_exercise_view(request):
     instance = User.objects.get(username=request.user.username)
-    queryset = Activity.objects.filter(user__username=instance.username).values("activityDuration", "activityDistance", "activityName", "typeOfActivity","completion")
+    queryset = Activity.objects.filter(user__username=instance.username).values("activityDuration", "activityDistance",
+                                                                                "activityName", "typeOfActivity",                                                                            "completion")
     print(queryset)
     context = {
         'queryset':queryset
@@ -136,7 +142,6 @@ def display_diet_view(request):
         'dailyCalories': dailyCalories,
         'maintenance_calories': maintenance_calories
     }
-    print(queryset)
 
     return render(request, "Users/diet.html", context)
 
