@@ -15,5 +15,3 @@ urlpatterns = [
     path('goals/', views.display_goal_view, name='Users-goals'),
     path('goals/goal_entry/', views.create_goal_view, name='Users-goal_entry'),
 ]
-
-

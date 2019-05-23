@@ -186,9 +186,9 @@ class CustomUser(AbstractUser):
         today = date.today()
         return today.year - self.dob.year - ((today.month, today.day) < (self.dob.month, self.dob.day))
 
-    def calculate_bmi(self):
-        height = Conversions.from_height_units_to_m(self.heightUnits, self.height)
-        weight = Conversions.from_weight_units_to_kg(self.weightUnits, self.weight)
+    def calculate_bmi(self, h_units, h, w_units, w):
+        height = Conversions.from_height_units_to_m(h_units, h)
+        weight = Conversions.from_weight_units_to_kg(w_units, w)
         return round(weight / (height * height), 2)
 
     def calculate_maintenance_calories(self):

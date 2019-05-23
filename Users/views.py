@@ -1,5 +1,6 @@
 from .forms import UserRegisterForm, UserLoginForm, GoalCreationForm, DietCreationForm, ActivityCreationForm
 from django.contrib import messages
+import datetime
 from django.shortcuts import render, redirect
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth import authenticate, login, logout, get_user_model
@@ -45,11 +46,14 @@ def dashboard_view(request):
             'days_left': days_left,
             'goal_weight': goal_weight,
             'goal_weight_units': goal_weight_units,
+            'maintenance_calories': maintenance_calories,
+            'current_weight': current_weight,
+            'user_weight_units': user_weight_units
         }
     ]
 
     context = {
-        'posts':posts
+        'posts': posts
     }
     return render(request, 'Users/dashboard.html', context)
 
@@ -61,6 +65,7 @@ def display_goal_view(request):
         goal = Goal.objects.get(user__username=instance.username)
     except Goal.DoesNotExist:
         goal = None
+
     if goal is not None:
         goal_complete = goal.check_goal_is_complete(instance.weightUnits, instance.weight)
         # days left till goal deadline
@@ -102,9 +107,10 @@ def display_exercise_view(request):
 @login_required(login_url='Users-login')
 def display_diet_view(request):
     instance = User.objects.get(username=request.user.username)
-    queryset = DietData.objects.filter(user__username=instance.username)
+    date_from = datetime.datetime.now() - datetime.timedelta(days=1)
+    queryset = DietData.objects.filter(user__username=instance.username, dateAdded__gte=date_from)
     context = {
-        "Diet_object_list": queryset
+        "posts": queryset
     }
 
     testdata = {
