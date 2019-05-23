@@ -14,6 +14,23 @@ from django.contrib.auth.forms import AuthenticationForm
 from django.forms.widgets import PasswordInput, TextInput
 
 
+class WeightModificationForm(forms.ModelForm):
+    weight = forms.IntegerField(
+        widget=forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'example: Enter your weight'}), )
+    weightUnits = forms.ChoiceField(widget=forms.Select(attrs={'class': 'choice-form', 'placeholder': ''}),
+                                    choices=[(unit.name, unit.value) for unit in WeightMeasurementUnits])
+
+    def clean(self):
+        weight = self.cleaned_data['weight']
+        if weight <= 0:
+            raise forms.ValidationError("Weight must be positive!")
+        return self.cleaned_data
+
+    class Meta:
+        model = get_user_model()
+        fields = ['weight', 'weightUnits']
+
+
 class GoalCreationForm(forms.ModelForm):
     goalWeight = forms.FloatField(
         widget=forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'example: Enter your goal weight'}), )

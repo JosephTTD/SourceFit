@@ -1,12 +1,14 @@
 from django.template.loader import render_to_string
 
-from .forms import UserRegisterForm, UserLoginForm, GoalCreationForm, DietCreationForm, ActivityCreationForm
+from .forms import UserRegisterForm, UserLoginForm, GoalCreationForm, DietCreationForm, ActivityCreationForm,\
+    WeightModificationForm
 from django.contrib import messages
 import datetime
 from django.shortcuts import render, redirect, render_to_response
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth import authenticate, login, logout, get_user_model
-from .models import Goal, ExerciseIntensity, DietData, CustomUser, Activity, WeightMeasurementUnits, HeightMeasurementUnits
+from .models import Goal, ExerciseIntensity, DietData, CustomUser, Activity, WeightMeasurementUnits, \
+    HeightMeasurementUnits
 
 
 User = get_user_model()
@@ -80,11 +82,14 @@ def display_goal_view(request):
     if goal is not None:
         goal_complete = goal.check_goal_is_complete(instance.weightUnits, instance.weight)
         goal_exceeded = goal.check_goal_is_expired()
+
         if goal_exceeded:
             goal['goalExceeded'] = True
+            goal.save()
         elif goal_complete:
             goal['goalCompletion'] = True
-        goal.save()
+            goal.save()
+
         # days left till goal deadline
         days_left = goal.return_days_to_goal_deadline()
         goal_weight = goal.goalWeight
@@ -120,15 +125,12 @@ def display_exercise_view(request):
     queryset = Activity.objects.filter(user__username=instance.username).values("activityDuration", "activityDistance",
                                                                                 "activityName", "typeOfActivity",
                                                                                 "completion")
-    for i in queryset:
-        print(i['completion'])
-        #if request.POST.get(i.get('activityDuration'), '') == 'on':
 
-
-
+    if request.POST.get('checkboeru', '') == 'on':
+            print("CHECKHIT")
 
     context = {
-        'queryset':queryset
+        'queryset': queryset
     }
     return render(request, "Users/exercise.html", context)
 
@@ -232,27 +234,19 @@ def logout_view(request):
         logout(request)
         return redirect('Users-login')
 
-
-posts = [
-
-    {
-        'author' : 'Joe',
-        'title' : 'posts',
-        'content' : 'succ your dad instead',
-        'date_posted' : 'June 17, 2019',
-        'current_weight' : '80',
-        'goal_weight' : '67',
-        'calories_consumed' : '1270',
-        'reach_goal' : '81',
-        'First_name' : 'Joseph',
-        'Second_name' : 'Dada'
-    }
-]
-
+######place form into PROFILE.HTML
 def profile(request):
     instance = User.objects.get(username=request.user.username)
+    if request.method == 'POST':
+        form = WeightModificationForm(request.POST)
+        if form.is_valid():
+            post = form.save(commit=False)
+            post.user = instance
+            post.save()
+    else:
+        form = WeightModificationForm()
+
     display_name = request.user.username
-    print(instance.weight)
     full_name = request.user.get_full_name
     maintenance_calories = instance.calculate_maintenance_calories()
     current_weight = instance.weight
@@ -291,52 +285,7 @@ def profile(request):
     ]
 
     context = {
-        'posts': posts
+        'posts': posts,
+        'form': form
     }
-    return render(request, 'Users/profile.html', context, {'title': 'Profile'})
-
-def goal_entry(request):
-    context = {
-        'posts' : posts
-    }
-    return render(request, 'Users/goal_entry.html', context, {'title': ''})
-
-def add_exercise(request):
-    context = {
-        'posts' : posts
-    }
-    return render(request, 'Users/exercise_entry.html', context, {'title': ''})
-
-def add_diet(request):
-    context = {
-        'posts' : posts
-    }
-    return render(request, 'Users/add_diet.html', context, {'title': ''})
-
-'''
-def diet(request):
-    context = {
-        'posts': posts
-    }
-    return render(request, 'Users/diet.html', context, {'title': 'Diet'})
-
-
-def exercise(request):
-    context = {
-        'posts': posts
-    }
-    return render(request, 'Users/exercise.html', context, {'title': 'Exercise'})
-
-def goals(request):
-    context = {
-        'posts': posts
-    }
-
-    return render(request, 'Users/goals.html', context, {'title': 'Goals'})
-    
-def dashboard(request):
-    context = {
-        'posts': posts
-    }
-    return render(request, 'Users/dashboard.html', context, {})
-'''
+    return render(request, 'Users/profile.html', context)
