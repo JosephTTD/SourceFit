@@ -84,10 +84,10 @@ def display_goal_view(request):
         goal_exceeded = goal.check_goal_is_expired()
 
         if goal_exceeded:
-            goal['goalExceeded'] = True
+            goal.goalExceeded= True
             goal.save()
         elif goal_complete:
-            goal['goalCompletion'] = True
+            goal.goalCompletion= True
             goal.save()
 
         # days left till goal deadline
@@ -158,6 +158,7 @@ def display_diet_view(request):
 @login_required(login_url='Users-login')
 def create_goal_view(request):
     instance = User.objects.get(username=request.user.username)
+
     if request.method == 'POST' and Goal:
         form = GoalCreationForm(request.POST)
         if form.is_valid():
