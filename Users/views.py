@@ -76,7 +76,7 @@ def display_goal_view(request):
         goal = None
 
     if request.POST and goal is not None:
-        if request.method == 'POST':  # If method is POST,
+        if request.method == 'POST':  # If method is GET
             goal.delete()
 
     if goal is not None:
@@ -89,17 +89,12 @@ def display_goal_view(request):
         elif goal_completed:
             goal.goalCompletion = True
             goal.save()
-            goal['goalExceeded'] = True
-            goal.save()
-        elif goal_completed:
-            goal['goalCompletion'] = True
-            goal.save()
         # days left till goal deadline
         days_left = goal.return_days_to_goal_deadline()
         goal_weight = goal.goalWeight
         goal_weight_units = goal.weightUnits
         goal_complete = goal.goalCompletion
-        goal_exceed = goal.goalExceeded
+        goal_exceeded = goal.goalExceeded
     else:
         goal_exceeded = False
         goal_complete = False
