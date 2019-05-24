@@ -80,20 +80,21 @@ def display_goal_view(request):
             goal.delete()
 
     if goal is not None:
-        goal_complete = goal.check_goal_is_complete(instance.weightUnits, instance.weight)
+        goal_completed = goal.check_goal_is_complete(instance.weightUnits, instance.weight)
         goal_exceeded = goal.check_goal_is_expired()
 
         if goal_exceeded:
             goal.goalExceeded= True
             goal.save()
-        elif goal_complete:
+        elif goal_completed:
             goal.goalCompletion= True
             goal.save()
-
         # days left till goal deadline
         days_left = goal.return_days_to_goal_deadline()
         goal_weight = goal.goalWeight
         goal_weight_units = goal.weightUnits
+        goal_complete = goal.goalCompletion
+        goal_exceed = goal.goalExceeded
     else:
         goal_exceeded = False
         goal_complete = False
@@ -106,7 +107,7 @@ def display_goal_view(request):
 
         {
             'goal_exceeded': goal_exceeded,
-            'goal_complete': goal_complete,
+            'goal_completion': goal_complete,
             'days_left': days_left,
             'goal_weight': goal_weight,
             'goal_weight_units': goal_weight_units,
@@ -147,7 +148,7 @@ def display_diet_view(request):
     for i in queryAllDailyCalories:
         dailyCalories += i
     context = {
-        'posts': queryset,
+        'queryset': queryset,
         'dailyCalories': dailyCalories,
         'maintenance_calories': maintenance_calories
     }
@@ -252,6 +253,12 @@ def profile(request):
     maintenance_calories = instance.calculate_maintenance_calories()
     current_weight = instance.weight
     user_weight_units = instance.weightUnits
+    date_from = datetime.datetime.now() - datetime.timedelta(days=1)
+    queryAllDailyCalories = DietData.objects.filter(user__username=instance.username,
+                                                    dateAdded__gte=date_from).values_list('calorificCount',flat=True)
+    dailyCalories = 0
+    for i in queryAllDailyCalories:
+        dailyCalories += i
     #boolean whether goal is complete or not
     try:
         goal = Goal.objects.get(user__username=instance.username)
@@ -286,6 +293,7 @@ def profile(request):
     ]
 
     context = {
+        'dailyCalories' : dailyCalories,
         'posts': posts,
         'form': form
     }

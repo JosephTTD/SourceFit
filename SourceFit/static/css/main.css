@@ -425,7 +425,7 @@ select[multiple], select[size] {
     Vertical-align: top;
 }
 
-.flipswitch {
+.checkbox {
     position: relative;
     background: transparent;
     width: 120px;
@@ -441,7 +441,7 @@ select[multiple], select[size] {
     border: 1px solid #fff;
 }
 
-.flipswitch:after {
+.checkbox:after {
     position: absolute;
     top: 5%;
     display: block;
@@ -457,12 +457,16 @@ select[multiple], select[size] {
     border-radius: 30px;
 }
 
-.flipswitch:after {
+.checkbox:after {
     left: 2%;
     content: "No";
 }
 
-.flipswitch:checked:after {
+.checkbox:checked:after {
     left: 53%;
     content: "Yes";
+}
+
+td, th {
+    padding: 10px;
 }
